@@ -1,2 +1,2 @@
-# -C-L-NG-QUY-TRONG-L-P-C-C-M-H-NH-BI-N-D-NG
+# Ước lượng đệ quy trong lớp các mô hình biến dạng
 Something description
