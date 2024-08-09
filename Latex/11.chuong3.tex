@@ -1,0 +1,1233 @@
+\chapter{The two-scale convergence method}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ước lượng các tham số chiều cao
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ước lượng các tham số chiều cao}
+Thông qua $\left(\mathcal{H}_{2}\right)$ và $\left(\mathcal{H}_{3}\right)$, dễ thấy
+$$
+\begin{aligned}
+\mathbb{E}\left[\frac{Y_{i, j}}{g\left(X_i\right)}\right] & =\mathbb{E}\left[\frac{a_j f\left(X_i-\theta_j\right)+v_j+\varepsilon_{i, j}}{g\left(X_i\right)}\right] \\
+& =a_j \mathbb{E}\left[\frac{f\left(X_i-t_j\right)}{g\left(X_i\right)}\right]+\mathbb{E}\left[\frac{v_j}{g\left(X_i\right)}\right]+\mathbb{E}\left[\frac{1}{g\left(X_i\right)}\right] \cdot \mathbb{E}\left[\varepsilon_{i,j}\right] . \\
+\end{aligned}
+$$
+Ta có 
+$$
+\begin{aligned}
+\mathbb{E}\left[\frac{f\left(X_i-t_j\right)}{g\left(X_i\right)}\right] & =\mathbb{E}\left[\frac{f\left(X-t_j\right)}{g\left(X\right)}\right] \\
+& =\int_{-1 / 2}^{1 / 2} f\left(x-\theta_j\right) d x\\
+& =\int_{-1 / 2-\theta_j}^{1 / 2-\theta_j} f\left(z\right) d z\\
+& =\int_{0+\left(-1 / 2-\theta_j\right)}^{1+\left(-1 / 2-\theta_j\right)} f\left(z\right) d z\\
+& =\int_{0}^{1} f\left(z\right) d z \;\;\;\;\;\;\;\; \left(\text{hàm $f$ tuần hoàn với chu kỳ $1$}\right)\\
+& =\int_{\frac{-1}{2}}^{\frac{1}{2}} f\left(z\right) d z \\
+& = 0  \quad \quad \quad \;\;\;\;\;\;\;\;\;\;\; \left(\text{hàm $f$ đối xứng}\right). \\
+\end{aligned}
+$$
+Ngoài ra
+$$
+\begin{aligned}
+\mathbb{E}\left[\frac{v_j}{g\left(X_i\right)}\right] =v_j \mathbb{E}\left[\frac{1}{g\left(X\right)}\right] =v_j\int_{-1 / 2}^{1 / 2} 1 d x= v_j,
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\mathbb{E}\left[\frac{1}{g\left(X_i\right)}\right] \cdot \mathbb{E}\left[\varepsilon_{i,j}\right] &=E\left[\frac{1}{g\left(X_i\right)}\right] \cdot 0 \;\;\;\;\;\;\left(\text{do }E\left[\varepsilon_{i,j}\right] = 0\right)\\
+& = 0
+\end{aligned}
+$$
+suy ra 
+$$
+\begin{aligned}
+\mathbb{E}\left[\frac{Y_{i, j}}{g\left(X_i\right)}\right] = v_j.
+\end{aligned}
+$$
+Khi đó, một ước lượng vững $\widehat{v}_{n}$ của $v$ cho bởi, với mọi $1 \leq j \leq p$
+\begin{align}
+    \widehat{v}_{n, j}=\frac{1}{n} \sum_{i=1}^{n} \frac{Y_{i, j}}{g\left(X_{i}\right)}.
+    \label{3.1}
+\end{align}
+Để thiết lập dáng điệu tiệm cận của $\widehat{v}_{n}$, ta ký hiệu vector $Y$ 
+\begin{align}
+    Y=\left(\begin{array}{c}
+Y_{1} \\
+\vdots \\
+Y_{p}
+\end{array}\right) .
+\label{3.2}
+\end{align}
+trong đó
+$$
+Y_{j}=a_{j} f\left(X-\theta_{j}\right)+v_{j}+\varepsilon_{j},
+$$
+với $X$ là biến ngẫu nhiên có cùng phân phối với các biến trong dãy $\left(X_{n}\right)$ và mọi $1 \leq j \leq p, \varepsilon_{j}$ có cùng phân phối với các biến trong dãy $\left(\varepsilon_{i, j}\right)$.
+
+Các kết quả tiệm cận $\widehat{v}_{n}$ được đề cập trong định lý sau.
+
+{\dl Giả sử các giả thiết từ $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{4}\right)$ đúng. Khi đó
+\begin{align}
+    \lim _{n \rightarrow+\infty} \widehat{v}_{n}=v \quad \text { h.c.c }
+    \label{3.3}
+\end{align}
+và tính tiệm cận chuẩn
+\begin{align}
+    \sqrt{n}\left(\widehat{v}_{n}-v\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}_{p}(0, \Gamma(v)),
+    \label{3.4}
+\end{align}
+trong đó $\Gamma(v)$ là ma trận hiệp phương sai xác định bởi
+$$
+\Gamma(v)=\operatorname{Cov}\left(\frac{Y}{g(X)}\right).
+$$
+Thêm vào đó, ta cũng có luật mạnh dạng toàn phương
+\begin{align}
+    \lim _{n \rightarrow+\infty} \frac{1}{\log (n)} \sum_{i=1}^{n}\left(\widehat{v}_{i}-v\right)\left(\widehat{v}_{i}-v\right)^{T}=\Gamma(v) \quad \text { h.c.c . }
+    \label{3.5}
+\end{align}}
+
+\begin{proof}
+Ta có 
+$
+\left(\frac{Y_{n, j}}{g\left(X_{n}\right)}\right)_n, 1\leq j \leq p
+$
+là một dãy các biến ngẫu nhiên độc lập cùng phân phối và 
+$
+\mathbb{E}\left[\frac{Y_{1, j}}{g\left(X_1\right)}\right] = v_j < \infty
+$
+nên theo luật số lớn cho dãy biến ngẫu nhiên độc lập cùng phân phối \cite{tien}, ta có
+$$
+\begin{aligned}
+    \lim_{n\to\infty} \frac{1}{n} \sum_{i=1}^{n} \frac{Y_{i, j}}{g\left(X_{i}\right)} 
+    &= \mathbb{E}\left[\frac{Y_{1, j}}{g\left(X_1\right)}\right] \text{    h.c.c}\\ \\
+\Longrightarrow \lim_{n\to\infty} \widehat{v}_{n_j} &= v_j \text{    h.c.c .}
+\end{aligned}
+$$
+Vậy $\lim_{n\to\infty} \widehat{v}_n = v \text{    h.c.c .}$\\
+% Đặt $A_n = n\left(\widehat{v}_n - v\right)$, ta có $\left(A_n\right)$ là dãy vector martingale. Thật vậy, với mọi $1\leq j \leq p$
+% $$
+% \begin{aligned}
+% \mathbb{E}\left[A_{n+1_j}\mid \mathcal{F}_n\right] &=E\left[\left.\sum_{i=1}^{n+1} \frac{Y_{i,j}}{g\left(X_i\right)}-(n+1) v_j \right\rvert\, \mathcal{F}_n\right] \\
+% & =\sum_{i=1}^n \frac{Y_{i, j}}{g\left(X_i\right)}-n v_j+E\left[\frac{Y_{n+1, j}}{g\left(X_i\right)}\right]-v_j \\
+% & =A_{n_j} \\
+% \end{aligned}
+% $$
+% % Áp dụng định lý giới hạn trung tâm chuẩn cho martingales với các gia số độc lập ta chứng minh được \label{3.4}
+Với mọi $n\in \mathbb{N}$, ta đặt 
+$$
+\begin{aligned}
+M_n=\frac{Y_n}{g\left(X_n\right)}-v.
+\end{aligned}
+$$
+Khi đó 
+$$
+\begin{aligned}
+E\left[M_n\right]=0 \quad \text {và phương sai } \Gamma(v)=\operatorname{Cov}\left(\frac{Y_n}{g(X_n)}\right)=\operatorname{Cov}\left(\frac{Y}{g(X)}\right).
+\end{aligned}
+$$
+Rõ ràng $\left(M_n\right)$ là một dãy các vector ngẫu nhiên độc lập cùng phân phối, có trung bình là $0$ và phương sai là $\Gamma(v)$. Do đó, theo \textbf{Proposition 2.1.7} trong \cite{duflo} ta có 
+$$
+\frac{1}{\sqrt{n}}\left(\sum_{i=1}^{n}M_i\right)=\frac{1}{\sqrt{n}}\cdot \frac{n}{n} \sum_{i=1}^{n} \frac{Y_{i}}{g\left(X_i\right)}- v \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}_{p}(0, \Gamma(v))
+$$
+suy ra 
+$$
+\sqrt{n} \cdot \left[\left(\frac{1}{n} \sum_{i=1}^{n} \frac{Y_{i}}{g\left(X_i\right)}\right)- v \right]= \sqrt{n}\left(\widehat{v}_{n}-v\right)\stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}_{p}(0, \Gamma(v)).
+$$
+Hơn nữa, chúng ta suy ra ngay \tref{3.5} từ Định lý 2.1 của \cite{chaabane}.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ước lượng các tham số chuyển
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ước lượng các tham số chuyển đổi}
+Từ đây về sau, ta định nghĩa hàm bổ trợ $\phi$, với mọi $t \in \mathbb{R}^{p}$
+\begin{align}
+    \phi(t)=\mathbb{E}\left[D(X, t)\left(\begin{array}{c}
+a_{1} f\left(X-\theta_{1}\right) \\
+\vdots \\
+a_{p} f\left(X-\theta_{p}\right)
+\end{array}\right)\right],
+\label{4.1}
+\end{align}
+\noindent trong đó $D(X, t)$ là ma trận đường chéo vuông cấp $p$ xác định bởi
+\begin{align}
+    D(X, t)=\frac{1}{g(X)} \operatorname{diag}\left(\sin \left(2 \pi\left(X-t_{1}\right)\right), \ldots, \sin \left(2 \pi\left(X-t_{p}\right)\right)\right),
+    \label{4.2}
+\end{align}
+nghĩa là 
+$$
+\phi\left(t\right)_j = \mathbb{E}\left[\frac{\sin \left(2 \pi\left(X-t_j\right)\right)\left(a_j f\left(X-\theta_j\right)\right)}{g\left(X\right)}\right], 1\leq j \leq p.
+$$
+Sử dụng tính đối xứng của hàm $f$, với mọi $1 \leq j \leq p$
+\begin{align}
+    \phi(t)_j = \mathbb{E}\left[\frac{\sin \left(2 \pi\left(X-t_{j}\right)\right)}{g(X)} a_{j} f\left(X-\theta_{j}\right)\right]=a_{j} f_{1} \sin \left(2 \pi\left(\theta_{j}-t_{j}\right)\right).
+    \label{4.3}
+\end{align}
+Thật vậy, ta có
+$$
+\phi(t)_j = \mathbb{E}\left[\frac{\sin \left(2 \pi\left(X-t_{j}\right)\right)}{g(X)} a_{j} f\left(X-\theta_{j}\right)\right].
+$$
+Do hàm mật độ $g$ suy biến trên $\mathbb{R}\backslash \left[ \dfrac{-1}{2}; \dfrac{1}{2}\right]$, với mọi $1 \leq j \leq p$ ta có
+$$
+\phi(t)=\int_{-1 / 2}^{1 / 2} \sin \left(2 \pi\left(x-t_{j}\right)\right)a_{j} f\left(x-\theta_{j}\right) d x.
+$$
+Ta đặt $y=x-\theta_j$ suy ra $dy=dx$ .\\
+Khi đó
+$$
+\begin{aligned}
+\phi(t) 
+= & \int_{-1 / 2 - \theta_j}^{1 / 2 - \theta_j} \sin \left(2 \pi\left(y + \theta_j -t_{j}\right)\right)a_{j} f\left(y\right) d x \\
+= & \int_{-1 / 2 - \theta_j}^{\left(-1 / 2 - \theta_j \right) + 1} \sin (2 \pi(y+\theta_j-t_{j}))a_{j} f(y) d y \\
+= & \int_{0}^{1} \sin (2 \pi(y+\theta_j-t_{j}))a_{j} f(y) d y \quad \left(\text{do hàm $f$ tuần hoàn với chu kỳ $1$}\right)\\
+= & \int_{-1 / 2}^{1 / 2} \sin (2 \pi(y+\theta_j-t_{j})) a_{j}f(y) d y \\
+= & \sin (2 \pi(\theta_j-t_{j})) \int_{-1 / 2}^{1 / 2} \cos (2 \pi y) a_{j}f(y) d y \\
+& +\cos (2 \pi(\theta_j-t_{j})) \int_{-1 / 2}^{1 / 2} \sin (2 \pi y) a_{j}f(y) d y
+\end{aligned},
+$$
+mà $sin(2\pi y)$ là hàm lẻ và $f$ đối xứng nên
+$$
+\cos (2 \pi(\theta_j-t_{j})) \int_{-1 / 2}^{1 / 2} \sin (2 \pi y) a_{j}f(y) d y = 0.
+$$
+Do đó
+$$
+\phi(t)_j =a_{j} f_{1} \sin \left(2 \pi\left(\theta_{j}-t_{j}\right)\right),
+$$
+trong đó $f_{1}$ là hệ số Fourier đầu tiên của $f$
+$$
+f_{1}=\int_{-1 / 2}^{1 / 2} \cos (2 \pi x) f(x) d x.
+$$
+Hệ quả là,
+\begin{align}
+    \phi(t)=f_{1}\left(\begin{array}{c}
+a_{1} \sin \left(2 \pi\left(\theta_{1}-t_{1}\right)\right) \\
+\vdots \\
+a_{p} \sin \left(2 \pi\left(\theta_{p}-t_{p}\right)\right)
+\end{array}\right).
+\label{4.4}
+\end{align}
+Từ giờ trở về sau, ta giả định $f_{1} \neq 0$. Nói cách khác, ta sẽ triển khai quy trình Robbins-Monro như trong \cite{bercu} cho từng thành phần của  $\theta$. Một cách chính xác hơn, với mọi $1 \leq j \leq p$,  $\phi_{j}(t)=a_{j} f_{1} \sin \left(2 \pi\left(\theta_{j}-t_{j}\right)\right)$, nếu $\left|t_{j}-\theta_{j}\right|<1 / 2,\left(t_{j}-\theta_{j}\right) \phi_{j}(t)<0$ nếu $\operatorname{sign}\left(a_{j} f_{1}\right)>0$ và $\left(t_{j}-\theta_{j}\right) \phi_{j}(t)>0$ trong trường hợp ngược lại. Hơn nữa, với $K=[-1 / 4 ; 1 / 4]$. Khi đó, xét phép chiếu $x \in \mathbb{R}$ lên $K$ xác định bởi
+$$
+\pi_{K}(x)=\left\{\begin{array}{cl}
+x & \text { nếu }|x| \leq 1 / 4 \\
+1 / 4 & \text { nếu } x \geq 1 / 4 \\
+-1 / 4 & \text { nếu } x \leq-1 / 4
+\end{array}\right..
+$$
+Cho $\left(\gamma_{n}\right)$ là một dãy các số thực dương giảm về thỏa mãn
+\begin{align}
+    \sum_{n=1}^{\infty} \gamma_{n}=+\infty \quad \text { và } \quad \sum_{n=1}^{\infty} \gamma_{n}^{2}<+\infty
+    \label{4.5}
+\end{align}
+Để cho rõ ràng, ta sẽ dùng $\gamma_{n}=1 / n$. Khi đó, với $1 \leq j \leq p$, ta ước lượng $\theta_{j}$ thông qua dãy $\left(\widehat{\theta}_{n, j}\right)$ xác định bởi, với mọi, với mọi $n \geq 1$
+\begin{align}
+    \widehat{\theta}_{n+1, j}=\pi_{K}\left(\widehat{\theta}_{n, j}+\gamma_{n+1} \operatorname{sign}\left(a_{j} f_{1}\right) T_{n+1, j}\right).
+    \label{4.6}
+\end{align}
+trong đó giá trị khởi tạo $\widehat{\theta}_{0} \in K^{p}$ và vector ngẫu nhiên $T_{n+1}$ cho bởi
+\begin{align}
+    T_{n+1}=D\left(X_{n+1}, \widehat{\theta}_{n}\right)\left(\begin{array}{c}
+    Y_{n+1,1} \\
+    \vdots \\
+    Y_{n+1, p}
+    \end{array}\right).
+    \label{4.7}
+\end{align}
+Sự hội tụ hầu chắc chắn của ước lượng $\widehat{\theta}_{n}$ được trình bày trong định lý sau.
+{\dl \label{dl4.1} (Định lý về sự hội tụ $\widehat{\theta}_{n}$) Giả sử có các giả thiết từ  $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{4}\right)$. Khi đó, $\widehat{\theta}_{n}$ hội tụ hầu chắc chắn về $\theta$ khi $n \rightarrow +\infty$. Thêm vào đó, với moi $1 \leq j \leq p$, số lần biến ngẫu nhiên $\widehat{\theta}_{n, j}+\gamma_{n+1} \operatorname{sign}\left(a_{j} f_{1}\right) T_{n+1, j}$ đi ra ngoài $K$ là hữu hạn hầu chắc chắn.}
+\begin{proof}
+    Theo định lý 2.1 của \cite{bercu}, ta có điều phải chứng minh
+\end{proof}
+Để thiết lập tính tiệm cần chuẩn của $\widehat{\theta}_{n}$, ta cần hàm bổ trợ $\varphi$ xác định bởi, với mọi $t \in \mathbb{R}^{p}$,
+\begin{align}
+    \varphi(t)=\mathbb{E}\left[V(t) V(t)^{T}\right],
+    \label{4.8}
+\end{align}
+trong đó $V(t)$ là
+$$
+V(t)=\operatorname{diag}\left(\operatorname{sign}\left(a_{1} f_{1}\right), \ldots, \operatorname{sign}\left(a_{p} f_{1}\right)\right) D(X, t) Y.
+$$
+với $Y$ cho bởi \tref{3.2}. Khi $4 \pi\left|f_{1}\right| \min _{1 \leq j \leq p}\left|a_{j}\right|>1$, với mọi $1 \leq k, l \leq p$, ta ký hiệu
+$$
+\Sigma(\theta)_{k, l}=\frac{\varphi(\theta)_{k, l}}{2 \pi\left(\left|a_{k}\right|+\left|a_{l}\right|\right)\left|f_{1}\right|-1}.
+$$
+{\dl \label{dl4.2} Giả sử có các giả thiết từ $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{4}\right)$. Thêm vào đó, giả sử $\left(\varepsilon_{i, j}\right)$ có moment hữu hạn bậc $>2$ và 
+$$
+4 \pi\left|f_{1}\right| \min _{1 \leq j \leq p}\left|a_{j}\right|>1 .
+$$
+Khi đó, ta có tính tiệm cận chuẩn
+\begin{align}
+    \sqrt{n}\left(\widehat{\theta}_{n}-\theta\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}_{p}(0, \Sigma(\theta))
+    \label{4.9}
+\end{align}}
+\begin{proof}
+Ta áp dụng Định lý 2.1 trang 330 của Kushner và Yin \cite{kushner}. Trước hết, vì $\gamma_{n}=1 / n$, điều kiện ở bước giảm được thỏa mãn. Hơn nữa, ta đã thấy rằng $\widehat{\theta}_{n}$ hội tụ hầu chắc chắn về $\theta$. Do đó, tất cả các giả định địa phương của Định lý 2.1 của Kushner và Yin \cite{kushner} đều được thỏa mãn. Ngoài ra, từ $\left(\ref{4.7}\right)$ ta có 
+$$
+T_{n+1}=\left[\begin{array}{c}
+\frac{1}{g\left(X_{n+1}\right)} \sin \left(2 \pi\left(X_{n+1}-(\hat{\theta}_{n})_1\right)\right) Y_{n+1,1} \\
+\vdots\\
+\frac{1}{g\left(X_{n+1}\right)} \sin \left(2 \pi\left(X_{n+1}-(\hat{\theta}_{n})_p\right)\right) Y_{n+1, p}
+\end{array}\right].
+$$
+Ta chứng minh được
+$$
+\mathbb{E}\left[T_{n+1} \mid \mathcal{F}_{n}\right]=\phi\left(\widehat{\theta}_{n}\right) \quad \text { h.c.c . }
+$$
+Thật vậy, ta có
+    $$
+    \begin{aligned}
+        \mathbb{E}\left[T_{n+1_j}\right]&=\mathbb{E}\left[\left.\frac{1}{g\left(X_{n+1}\right)} \sin \left(2 \pi\left(X_{n+1}-\hat{\theta}_{n j}\right)\right) Y_{n+1, j} \right\rvert\, \mathcal{F}_n\right], 1 \leq j \leq p.\\
+        &=\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X_{n+1}-\hat{\theta}_{n j}\right)\right) \cdot\left(a_j f\left(X_{n+1}-\theta_j\right)+v_j + \varepsilon_{n+1,j}\right)}{g\left(X_{n+1}\right)}\right] \\
+        &\left(\text{vì }  Y_{n+1, j}=a_{j} f\left(X_{n+1}-\theta_{j}\right)+v_{j}+\varepsilon_{n+1, j}  \right) \\
+        &=\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X_{n+1}-\hat{\theta}_{n j}\right)\right) \cdot\left(a_j f\left(X_{n+1}-\theta_j\right)+v_j \right)}{g\left(X_{n+1}\right)}\right] \\
+        &\left(\text{do } \mathbb{E}\left[\varepsilon_{n+1, j}\right]=0 \text { và } \varepsilon_{n+1,j} , X_{n+1} \notin \mathcal{F}_n\right). \\
+    \end{aligned}
+$$
+Nhận thấy rằng
+$$
+\begin{aligned}
+    &\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X_{n+1}-\hat{\theta}_{n j}\right)\right) \cdot\left(a_j f\left(X_{n+1}-\theta_j\right)+v_j \right)}{g\left(X_{n+1}\right)}\right] \\
+    &=\mathbb{E}\left[\frac{\sin \left(2 \pi ( X_ { n + 1 } - \hat { \theta } _ { n j } \right) \cdot \left(a_jf\left(X_{n+1}-\theta_j\right)\right)}{g\left(X_{n+1}\right)}\right] + \mathbb{E}\left[\frac{\sin \left(2 \pi ( X_ { n + 1 } - \hat { \theta } _ { n j } \right)v_j}{g\left(X_{n+1}\right)}\right].
+\end{aligned}
+$$
+Ta sẽ chứng minh 
+$$
+\mathbb{E}\left[\frac{\sin \left(2 \pi ( X_ { n + 1 } - \hat { \theta } _ { n j } \right)v_j}{g\left(X_{n+1}\right)}\right] = 0.
+$$
+Thật vậy
+$$
+\begin{aligned}
+&\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X_{n+1}-\hat{\theta}_{n j}\right)\right)\cdot v_j}{g\left(X_{n+1}\right)} \right] \\
+&=\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X-\hat{\theta}_{n j}\right)\right) \cdot v_j}{g(X)}\right] \\
+&=\int_{-1 / 2}^{1 / 2} \sin \left(2 \pi\left(x-\hat{\theta}_{n+j}\right)\right) \cdot v_j d x \\
+&= \int_{-1 / 2 - \hat{\theta}_{n j}}^{1 / 2 - \hat{\theta}_{n j}} \sin (2 \pi(g)) v_j d y \\
+&= \int_{-1 / 2 - \hat{\theta}_{n j}}^{\left(-1 / 2 - \hat{\theta}_{n j}\right) + 1} \sin (2 \pi(g)) v_j d y . \\
+&=\int_0^1 \sin (2 \pi(y)) v_j d y \quad \quad \left(\text{do hàm tuần hoàn với chu kỳ 1}\right)\\
+&=\int_{-1 / 2}^{1 / 2} \sin (2 \pi(y)) v_j d y \\
+&= 0 \quad \quad \quad \left(\text{hàm lẻ trên miền đối xứng}\right).
+\end{aligned}
+$$
+Từ đó suy ra
+$$
+\begin{aligned}
+    &\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X_{n+1}-\hat{\theta}_{n j}\right)\right) \cdot\left(a_j f\left(X_{n+1}-\theta_j\right)+v_j \right)}{g\left(X_{n+1}\right)}\right] \\
+    &=\mathbb{E}\left[\frac{\sin \left(2 \pi ( X_ { n + 1 } - \hat { \theta } _ { n j } \right) \cdot \left(a_jf\left(X_{n+1}-\theta_j\right)\right)}{g\left(X_{n+1}\right)}\right].
+\end{aligned}
+$$
+Vậy nên
+    $$
+    \begin{aligned}
+        \mathbb{E}\left[T_{n+1_j}\right]
+        &=\mathbb{E}\left[\frac{\sin \left(2 \pi ( X_ { n + 1 } - \hat { \theta } _ { n j } ) \cdot \left(a_jf\left(X_{n+1}-\theta_j\right)\right.\right.}{g\left(X_{n+1}\right)}\right] \\
+        &=\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X-\hat{\theta}_j\right)\right) \cdot\left(a_j f\left(X-\theta_j\right)\right)}{g\left(X\right)}\right]
+    \end{aligned}
+$$
+mà 
+$$
+\mathbb{E}\left[\frac{\sin \left(2 \pi\left(X-\hat{\theta}_j\right)\right) \cdot\left(a_j f\left(X-\theta_j\right)\right)}{g\left(X_{n+1}\right)}\right] = \phi\left(\widehat{\theta}_{n}\right)_j \quad \text { h.c.c }
+$$
+ta thu được
+$$
+ \mathbb{E}\left[T_{n+1_j}\right] = \phi\left(\widehat{\theta}_{n}\right)_j \quad \text { h.c.c }, 1 \leq j \leq p.
+$$
+Vậy 
+$$
+ \mathbb{E}\left[T_{n+1}\right] = \phi\left(\widehat{\theta}_{n}\right) \quad \text { h.c.c .}
+$$
+Hơn nữa, hàm $\phi$ khả vi liên tục, $\phi(\theta)=0$ và $D \phi(\theta)$ là ma trận đường chéo vuông xác định bởi
+$$
+D \phi(\theta)=-2 \pi f_{1} \operatorname{diag}\left(a_{1}, \ldots, a_{p}\right).
+$$
+Ta ký hiệu $I_{p}$ là ma trận đơn vị cấp $p$, điều kiện $4 \pi\left|f_{1}\right| \min _{1 \leq j \leq p}\left|a_{j}\right|>1$ dẫn đến
+$$
+D \phi(\theta)+\frac{1}{2} I_{p}
+$$
+là ma trận xác định âm. Hơn nữa, ta có, với mọi $1 \leq k, l \leq p$,
+$$
+\mathbb{E}\left[\operatorname{sign}\left(a_{k} f_{1}\right) T_{n+1, k} \operatorname{sign}\left(a_{l} f_{1}\right) T_{n+1, l} \mid \mathcal{F}_{n}\right]=\varphi\left(\widehat{\theta}_{n}\right)_{k, l} \quad \text { h.c.c .}
+$$
+Điều này dẫn đến
+$$
+\lim _{n \rightarrow \infty} \mathbb{E}\left[\operatorname{sign}\left(a_{k} f_{1}\right) T_{n+1, k} \operatorname{sign}\left(a_{l} f_{1}\right) T_{n+1, l} \mid \mathcal{F}_{n}\right]=\varphi(\theta)_{k, l} \quad \text { h.c.c . }
+$$
+Do đó, nếu ta có thể chứng minh dãy $\left(W_{n}\right)$ cho bởi
+$$
+W_{n}=\frac{\left\|\widehat{\theta}_{n}-\theta\right\|^{2}}{\gamma_{n}}
+$$
+bị chặn theo xác suất (tightness). Khi đó, từ Định lý 2.1 của \cite{kushner} ta suy ra
+$$
+\sqrt{n}\left(\widehat{\theta}_{n}-\theta\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}_{p}(0, \Sigma(\theta)),
+$$
+trong đó với mọi $1 \leq k, l \leq p$,
+$$
+\Sigma(\theta)_{k, l}=\varphi(\theta)_{k, l} \int_{0}^{+\infty} \exp \left(\left(1-2 \pi\left|f_{1}\right|\left(\left|a_{k}\right|+\left|a_{l}\right|\right)\right) t\right) d t=\frac{\varphi(\theta)_{k, l}}{2 \pi\left|f_{1}\right|\left(\left|a_{k}\right|+\left|a_{l}\right|\right)-1}
+$$
+Do đó, cần phải chứng minh tính bị chặn theo xác suất của dãy $\left(W_{n}\right)$. 
+Gọi $\left(V_{n}\right)$ là dãy xác định, với mọi $n \geq 1$, bởi
+\begin{align}
+    V_{n}=\left\|\widehat{\theta}_{n}-\theta\right\|^{2}
+    \label{8.1}
+\end{align}
+và $T_{n}^{\prime}$ dãy được xác định, với mọi $1 \leq j \leq p$, bởi
+\begin{align}
+    T_{n, j}^{\prime}=\operatorname{sign}\left(a_{j} f_{1}\right) T_{n, j}.
+\label{8.2}
+\end{align}
+Khi đó, rõ ràng ta có
+$$
+\begin{aligned}
+V_{n+1} & =\left\|\widehat{\theta}_{n+1}-\theta\right\|^{2} \\
+& =\left\|\pi_{K^{p}}\left(\widehat{\theta}_{n}+\gamma_{n+1} T_{n+1}^{\prime}\right)-\theta\right\|^{2} {\tim{do \ref{4.6}}}\\
+& =\left\|\pi_{K^{p}}\left(\widehat{\theta}_{n}+\gamma_{n+1} T_{n+1}^{\prime}\right)-\pi_{K^{p}}(\theta)\right\|^{2} {\tim{do $\max _{1 \leq j \leq p}\left|\theta_{j}\right|<1 / 4$}}\\
+& \leq\left\|\widehat{\theta}_{n}+\gamma_{n+1} T_{n+1}^{\prime}-\theta\right\|^{2} {\tim{vì $\pi_{K^{p}}=\left(\pi_{K}, \ldots, \pi_{K}\right)^{T}$ là hàm Lipschitz}.}
+\end{aligned}
+$$
+Tiếp theo đó
+$$
+V_{n+1} \leq V_{n}+\gamma_{n+1}^{2}\left\|T_{n+1}^{\prime}\right\|^{2}+2 \gamma_{n+1}\left\langle\widehat{\theta}_{n}-\theta, T_{n+1}^{\prime}\right\rangle\quad \text { h.c.c . }
+$$
+Ta có
+$$
+V_{n+1} \leq\left\|\widehat{\theta}_{n}+\gamma_{n+1} T_{n+1}^{\prime}-\theta\right\|^{2}
+$$
+mà 
+$$
+\begin{aligned}
+      &\left\|\hat{\theta}_n-\theta + \gamma_{n+1} T_{n+1}^{\prime}\right\|^2 \\
+    = &\left\langle\hat{\theta}_n-\theta+\gamma_{n+1} T_{n+1}^{\prime}, \hat{\theta}_n-\theta+\gamma_{n+1} T_{n+1}\right\rangle \\
+    = &\left\|\hat{\theta}_n-\theta\right\|^2+2\left\langle\hat{\theta}_n-\theta, \gamma_{n+1} T_{n+1}^{\prime}\right\rangle +\left\|\gamma_{n+1} T_{n+1}^{\prime}\right\|^2
+\end{aligned}
+$$
+nên 
+$$
+V_{n+1} \leq V_{n}+\gamma_{n+1}^{2}\left\|T_{n+1}^{\prime}\right\|^{2}+2 \gamma_{n+1}\left\langle\widehat{\theta}_{n}-\theta, T_{n+1}^{\prime}\right\rangle\quad \text { h.c.c . }
+$$
+Bằng cách lấy kỳ vọng cho bất đẳng thức trên, ta thu được rằng tồn tại một hằng số $M>0$ sao cho
+\begin{align}
+    \mathbb{E}\left[V_{n+1} \mid \mathcal{F}_{n}\right] \leq V_{n}+\gamma_{n+1}^{2} M+2 \gamma_{n+1}\left\langle\widehat{\theta}_{n}-\theta, \mathbb{E}\left[T_{n+1}^{\prime} \mid \mathcal{F}_{n}\right]\right\rangle\quad \text { h.c.c . }
+    \label{8.3}
+\end{align}
+Hơn nữa, $\tim{\ref{4.7}}$ cùng với $\tim{\ref{8.2}}$ dẫn đến
+\begin{align}
+\mathbb{E}\left[T_{n+1}^{\prime} \mid \mathcal{F}_{n}\right]=S_{p}(a) \phi\left(\widehat{\theta}_{n}\right),
+\label{8.4}    
+\end{align}
+trong đó
+$$
+S_{p}(a)=\operatorname{diag}\left(\operatorname{sign}\left(a_{1} f_{1}\right), \ldots, \operatorname{sign}\left(a_{p} f_{1}\right)\right).
+$$
+Do đó, từ $\tim{\ref{8.3}}$ và $\tim{\ref{8.4}}$ ta suy ra rằng
+\begin{align}
+    \mathbb{E}\left[W_{n+1} \mid \mathcal{F}_{n}\right] \leq \frac{V_{n}}{\gamma_{n+1}}+\gamma_{n+1} M+2\left\langle\widehat{\theta}_{n}-\theta, S_{p}(a) \phi\left(\widehat{\theta}_{n}\right)\right\rangle\quad \text { h.c.c . }
+    \label{8.5}
+\end{align}
+Ta có 
+$$
+\begin{aligned}
+& {\left[S_p(a) \phi\left(\hat{\theta}_n\right)\right]_j} \\
+& =\operatorname{sign}\left(a_j f_1\right) a_i f_1 \sin \left(2 \pi\left(\theta_j-\hat{\theta}_{n_j}\right)\right) \quad 1 \leq j \leq p .
+\end{aligned}
+$$
+Khi đó
+$$
+\begin{aligned}
+    \left\langle\hat{\theta}_n-\theta, S_p(a) \phi\left(\hat{\theta}_n\right)\right\rangle
+    &=\sum_{j=1}^p \operatorname{sign}\left(a_j f_1\right) a_j f_1 \cdot \sin \left(2 \pi\left(\theta_j-\hat{\theta}_{n j}\right)\left(\hat{\theta}_{n j} - \theta_j\right)\right) \\
+    & =\sum_{j=1}^p 2 \pi f_1 \sin \left(a_j f_1\right) a_j\left(-\left(\hat{\theta}_{n_j}-\theta_j\right)^2\right)\\
+    &+\sum_{j=1}^n \frac{\operatorname{sign}\left(a_j f_1\right) a_j f_1 \sin \left(2 \pi\left(\theta_j-\hat{\theta}_{n j}\right)\right)\left(-\left(\hat{\theta}_{n_j}-\hat{\theta}_j\right)^2\right)}{\theta_j-\hat{\theta}_{n_j}}\\
+    &+\sum_{j=1}^p 2\pi f_1 \operatorname{sign}\left(a_j f_1\right) a_j\left(\hat{\theta}_{n j}-\theta_j\right)^2. \\
+\end{aligned}
+$$
+Vì vậy
+$$
+\begin{aligned}
+    &\left\langle\hat{\theta}_n-\theta, S_p(a) \phi\left(\hat{\theta}_n\right)\right\rangle\\
+    &=\sum_{j=1}^p 2 \pi f_1 \operatorname{sign}\left(a_j f_1\right) a_j\left(-\left(\hat{\theta}_{n_j}-\theta_j\right)^2\right) \\
+    & +\sum_{j=1}^p \frac{\operatorname{sign}\left(a_j f_1\right) a_j f_1 \sin \left(2 \pi\left(\theta_j-\hat{\theta}_{n_j}\right)\right)-2 \pi\left(\theta_j-\hat{\theta}_{n_j}\right)}{\theta_j-\hat{\theta}_{n_j}}\left(-\left(\hat{\theta}_{n_j}-\theta_j\right)^2\right)\\
+    & =\left\langle\widehat{\theta}_{n}-\theta, 2 \pi f_{1} S_{p}(a) \operatorname{diag}\left(a_{1}, \ldots, a_{p}\right)\left(\theta-\widehat{\theta}_{n}\right)\right\rangle \\
+    & +f_{1}\left\langle\widehat{\theta}_{n}-\theta, S_{p}(a) \operatorname{diag}\left(a_{1}, \ldots, a_{p}\right) \mathcal{V}\left(\widehat{\theta}_{n}\right)\left(\theta-\widehat{\theta}_{n}\right)\right\rangle \text{ .}
+\end{aligned}
+$$
+Hơn nữa, khai triển Taylor của $\phi$ cho phép ta viết
+\begin{align}
+\left\langle\widehat{\theta}_{n}-\theta, S_{p}(a) \phi\left(\widehat{\theta}_{n}\right)\right\rangle& =\left\langle\widehat{\theta}_{n}-\theta, 2 \pi f_{1} S_{p}(a) \operatorname{diag}\left(a_{1}, \ldots, a_{p}\right)\left(\theta-\widehat{\theta}_{n}\right)\right\rangle\\
+& +f_{1}\left\langle\widehat{\theta}_{n}-\theta, S_{p}(a) \operatorname{diag}\left(a_{1}, \ldots, a_{p}\right) \mathcal{V}\left(\widehat{\theta}_{n}\right)\left(\theta-\widehat{\theta}_{n}\right)\right\rangle,
+\label{8.6}
+\end{align}
+trong đó với mọi $t \neq \theta$,
+$$
+\mathcal{V}(t)=\operatorname{diag}\left(\frac{\sin \left(2 \pi\left(\theta_{1}-t_{1}\right)\right)-2 \pi\left(\theta_{1}-t_{1}\right)}{\theta_{1}-t_{1}}, \ldots, \frac{\sin \left(2 \pi\left(\theta_{p}-t_{p}\right)\right)-2 \pi\left(\theta_{p}-t_{p}\right)}{\theta_{p}-t_{p}}\right).
+$$
+Hơn nữa, vì $\operatorname{sign}\left(x\right)\cdot x = |x|$ ta có đẳng thức sau
+$$
+f_{1} S_{p}(a) \operatorname{diag}\left(a_{1}, \ldots, a_{p}\right)=L(a),
+$$
+trong đó
+$$
+L(a)=\operatorname{diag}\left(\left|f_{1} a_{1}\right|, \ldots,\left|f_{1} a_{p}\right|\right)
+$$
+cùng với $\tim{\ref{8.3}}$ và $\left(\widehat{\theta}_{n}-\theta\right) = - \left(\theta - \widehat{\theta}_{n}\right)$ dẫn đến
+$$
+\begin{aligned}
+\left\langle\widehat{\theta}_{n}-\theta, S_{p}(a) \phi\left(\widehat{\theta}_{n}\right)\right\rangle& =-2 \pi\left(\widehat{\theta}_{n}-\theta\right)^{T} L(a)\left(\widehat{\theta}_{n}-\theta\right) \\
+& -\left(\widehat{\theta}_{n}-\theta\right)^{T} L(a) \mathcal{V}\left(\widehat{\theta}_{n}\right)\left(\widehat{\theta}_{n}-\theta\right).
+\end{aligned}
+$$
+Do đó, với $\frac{V_{n}}{\gamma_{n+1}} = \left(1+\gamma_{n}\right) W_{n}$, $\gamma_{n+1} M < \gamma_{n} M$, đánh giá $\tim{\ref{8.5}}$ cũng có thể viết lại thành
+\begin{align}
+\mathbb{E}\left[W_{n+1} \mid \mathcal{F}_{n}\right] \leq & \left(1+\gamma_{n}\right) W_{n}+\gamma_{n} M-4 \pi\left(\widehat{\theta}_{n}-\theta\right)^{T} L(a)\left(\widehat{\theta}_{n}-\theta\right) \\
+& -2\left(\widehat{\theta}_{n}-\theta\right)^{T} L(a) \mathcal{V}\left(\widehat{\theta}_{n}\right)\left(\widehat{\theta}_{n}-\theta\right). 
+\label{8.7}
+\end{align}
+Hơn nữa, vì
+$$
+L(a) \geq \min _{1 \leq j \leq p}\left|a_{j} f_{1}\right| I_{p}
+$$
+nên từ $\tim{\ref{8.7}}$ ta suy ra
+$$
+\mathbb{E}\left[W_{n+1} \mid \mathcal{F}_{n}\right] \leq W_{n}+2 q \gamma_{n} W_{n}+M \gamma_{n}-2\left(\widehat{\theta}_{n}-\theta\right)^{T} L(a)\mathcal{V}\left(\widehat{\theta}_{n}\right)\left(\widehat{\theta}_{n}-\theta\right),
+$$
+trong đó
+$$
+2 q=1-4 \pi\left|f_{1}\right| \min _{1 \leq j \leq p}\left|a_{j}\right|,
+$$
+có nghĩa là $q<0$.\\
+Với
+$$2q = 1-4 \pi |f_1|\min_{1 \leq j \leq p}|a_j|$$
+mà
+$$L(a) \geqslant \min_{1 \leqslant j \leqslant p}\left|a_j f_1\right| I_p = \left|f_1\right| \min_{1 \leqslant j \leqslant p}\left|a_j\right| I_p.$$
+Do đó từ $\tim{\ref{8.7}}$ ta suy ra
+$$
+\begin{aligned}
+    \mathbb{E}\left[W_{n+1} \mid F_n\right] 
+    \leqslant &W_n+M \gamma_n+\gamma_n W_n-4 \pi |f_1| \min _{1 \leq j \leq p}\left|a_j\right| \cdot\left\|\hat{\theta}_n-\theta\right\|^2\\
+    &-2\left(\hat{\theta}_n-\theta\right)^{\top} L(a) \mathcal{V}\left(\hat{\theta}_n\right)\left(\hat{\theta}_n-\theta\right)\\
+    = & W_n+M \gamma_n+\gamma_n W_n-4 \pi |f_1| \min _{1 \leq j \leq p}\left|a_j\right| \cdot \gamma_n W_n\\
+    &-2\left(\hat{\theta}_n-\theta\right)^{\top} L(a) \mathcal{V}\left(\hat{\theta}_n\right)\left(\hat{\theta}_n-\theta\right).
+\end{aligned}
+$$
+Cuối cùng
+\begin{align}
+    \mathbb{E}\left[W_{n+1} \mid \mathcal{F}_{n}\right] \leq W_{n}+2 q \gamma_{n} W_{n}+M \gamma_{n}-2\left(\widehat{\theta}_{n}-\theta\right)^{\top} L(a)\mathcal{V}\left(\widehat{\theta}_{n}\right)\left(\widehat{\theta}_{n}-\theta\right).
+    \label{8.8}
+\end{align}
+Ta có
+$$L(a) \geqslant \min_{1 \leqslant j \leqslant p}\left|a_j f_1\right| I_p$$
+nên
+$$
+-2L(a) \leqslant -2\min_{1 \leqslant j \leqslant p}\left|a_j f_1\right| I_p.
+$$
+Khi đó từ $\left(\ref{8.8}\right)$ ta được
+\begin{align}
+\mathbb{E}\left[W_{n+1} \mid \mathcal{F}_{n}\right] \leq W_{n}+2 q \gamma_{n} W_{n}+M \gamma_{n}-2\left(\widehat{\theta}_{n}-\theta\right)^{\top} \left(\min_{1 \leqslant j \leqslant p}\left|a_j f_1\right| I_p\right)\mathcal{V}\left(\widehat{\theta}_{n}\right)\left(\widehat{\theta}_{n}-\theta\right).
+\label{8.8.1}
+\end{align}
+Theo tính liên tục của hàm $\mathcal{V}$, ta có thể chọn $0<\varepsilon<$ $1 / 2$ sao cho, nếu $\|t-\theta\|<\varepsilon$,
+\begin{align}
+    \frac{q}{2\left|f_{1}\right| \min _{1 \leq j \leq p}\left|a_{j}\right|} I_{p}<\mathcal{V}(t)<0.
+    \label{8.9}
+\end{align}
+Hơn nữa, đặt $A_{n}$ và $B_{n}$ là các tập $A_{n}=\left\{\left\|\widehat{\theta}_{n}-\theta\right\| \leq \varepsilon\right\}$ và
+$$
+B_{n}=\bigcap_{k=m}^{n} A_{k},
+$$
+với $1 \leq m \leq n$. Khi đó, từ \tref{8.9} ta có
+\begin{align}
+0<-2\left|f_{1}\right| \min _{1 \leq j \leq p}\left|a_{j}\right| \mathcal{V}\left(\widehat{\theta}_{n}\right) \mathrm{I}_{B_{n}}<-\left(\frac{q}{2}\right) I_{p} \mathrm{I}_{B_{n}} <-q I_{p} \mathrm{I}_{B_{n}}
+\label{8.10}
+\end{align}
+với $I_{p}$ là ma trận đơn vị. Do đó, kết hợp \tref{8.8.1} và \tref{8.10} ta suy ra, với mọi $n \geq m$,
+\begin{align}
+\mathbb{E}\left[W_{n+1} \mathrm{I}_{B_{n}} \mid \mathcal{F}_{n}\right] & \leq W_{n} \mathrm{I}_{B_{n}}+2 \gamma_{n} W_{n} q \mathrm{I}_{B_{n}}-q \gamma_{n} W_{n} \mathrm{I}_{B_{n}}+\gamma_{n} M \\
+& \leq W_{n} \mathrm{I}_{B_{n}}\left(1+q \gamma_{n}\right)+\gamma_{n} M\text{.}
+\label{8.11}
+\end{align}
+Từ $B_{n+1}=B_{n} \cap A_{n+1}, B_{n+1} \subset B_{n}$, bằng cách lấy kỳ vọng ở cả hai vế của \tref{8.11} ta thu được, với mọi $n \geq m$,
+\begin{align}
+\mathbb{E}\left[W_{n+1} \mathrm{I}_{B_{n+1}}\right] \leq \mathbb{E}\left[W_{n+1} I_{B_n}\right] \leq\left(1+q \gamma_{n}\right) \mathbb{E}\left[W_{n} \mathrm{I}_{B_{n}}\right]+\gamma_{n} M.
+\label{8.12}
+\end{align}
+Từ đây trở đi, ta ký hiệu $\alpha_{n}=\mathbb{E}\left[W_{n} \mathrm{I}_{B_{n}}\right]$. Từ  \tref{8.12} ta suy ra rằng với mọi $n \geq m$,
+$$
+\begin{aligned}
+\mathbb{E}\left[W_{n+1} I_{B_{n+1}}\right] &\leqslant\left(1+q \gamma_n\right) \mathbb{E}\left[W_n I_{B_n}\right]+\gamma_n M \text {, } \\ 
+\mathbb{E}\left[W_n I_{B_n}\right] &\leqslant\left(1+q \gamma_{n-1}\right) \mathbb{E}\left[W_{n-1} I_{B_{n-1}}\right]+\gamma_{n-1} M \text {, } \\
+\dots \\
+\mathbb{E}\left[W_{m+1} I_{B_{m+1}}\right] &\leqslant\left(1+q \gamma_m\right) \mathbb{E}\left[W_m I_{B_m}\right]+\gamma_m M.
+\end{aligned}
+$$
+Khi đó
+$$
+\begin{aligned}
+\mathbb{E}\left[W_{n+1} I_{B_{n+1}}\right] \leqslant & \left(1+q \gamma_n\right)\left(1+q \gamma_{n-1}\right) \ldots\left(1+q \gamma_m\right) \mathbb{E}\left[W_m I_{B_m}\right] \\ & +\gamma_n M \\ & +\left(1+q \gamma_n\right) \gamma_{n-1} M \\ & +\left(1+q \gamma_n\right)\left(1+q \gamma_{n-1}\right) \gamma_{n-2} M \\ & \cdots \\ & +\left(1+q \gamma_n\right)\left(1+q \gamma_{n-1}\right) \cdots\left(1+q \gamma_{m+1}\right) \gamma_m M.
+\end{aligned}
+$$
+Suy ra
+\begin{equation}
+    \alpha_{n+1} \leq \beta_{n} \alpha_{m}+M \beta_{n} \sum_{k=m}^{n} \frac{\gamma_{k}}{\beta_{k}} \quad \text { trong đó } \beta_{n}=\prod_{k=m}^{n}\left(1+q \gamma_{k}\right).
+\label{8.12.1}
+\end{equation}
+Vì $\gamma_{n}=1 / n$, từ các phép tính đơn giản $\beta_{n}=\mathcal{O}\left(n^{q}\right)$ 
+và
+$$
+\sum_{k=1}^{n} \frac{\gamma_{k}}{\beta_{k}}=\mathcal{O}\left(n^{-q}\right).
+$$
+Do đó, (\ref{8.12}) ngay lập tức dẫn đến
+\begin{equation}
+    \sup _{n \geq m} \alpha_{n}<+\infty.
+\label{3.2.20}
+\end{equation}
+Từ đây, ta bắt đầu chứng minh tính bị chặn theo xác suất của dãy $\left(W_{n}\right)$. Thật vậy, ta đã chứng minh được trong Định lý \ref{dl4.1} rằng $\widehat{\theta}_{n}$ hội tụ về $\theta$ hầu chắn chắn. Do đó, nếu
+$$
+C_{n}=\bigcup_{k \geq n} \bar{A}_{k}
+$$
+thì $\mathbb{P}\left(C_{n}\right)$ hội tụ về 0 khi $n \to \infty$. \\
+Hơn nữa, với $n \geq m$, $\bar{B}_{n} \subset C_{m}$ nghĩa là khi $m, n$ tiến đến vô cùng thì $\mathbb{P}\left(\bar{B}_{n}\right)$ tiến đến 0. Với mọi $\xi, K>0$ và với mọi $n \geq m$ với $m$ đủ lớn,
+\begin{equation}
+    \begin{aligned}
+\mathbb{P}\left(W_{n}>K\right) & \leq \mathbb{P}\left(W_{n} \mathrm{I}_{B_{n}}>K / 2\right)+\mathbb{P}\left(W_{n} \mathrm{I}_{\bar{B}_{n}}>K / 2\right) \\
+& \leq \frac{2}{K} \mathbb{E}\left[W_{n} \mathrm{I}_{B_{n}}\right]+\mathbb{P}\left(\bar{B}_{n}\right).
+\end{aligned}
+\label{3.2.21}
+\end{equation}
+Từ (\ref{3.2.20}) ta suy ra rằng ta có thể xác định $K$ phụ thuộc vào $\xi$ sao cho số hạng đầu tiên bên vế phải của (\ref{3.2.21}) nhỏ hơn $\xi/2$.\\
+Điều này cũng xảy ra với số hạng thứ hai khi $\mathbb{P}\left(\bar{B}_{n}\right)$ tiến tới 0.\\
+Vậy với mọi $\xi>0$, tồn tại $K>0$ sao cho với $m$ đủ lớn,
+$$
+\sup _{n \geq m} \mathbb{P}\left(W_{n}>K\right)<\xi.
+$$
+Điều này thể hiện tính bị chặn theo xác suất của $\left(W_{n}\right)$ và kết thúc chứng minh Định lý \ref{dl4.2} .
+\end{proof}
+{\dl Giả sử có các giả thiết từ $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{4}\right)$. Thêm vào đó, giả sử $\left(\varepsilon_{i, j}\right)$ có moment hữu hạn bậc $>2$ và
+$$
+4 \pi\left|f_{1}\right| \min _{1 \leq j \leq p}\left|a_{j}\right|>1.
+$$
+Khi đó, ta có luật loga-lặp cho bởi, với mọi $w \in \mathbb{R}^{p}$,
+$$
+\begin{aligned}
+\limsup _{n \rightarrow \infty}\left(\frac{n}{2 \log \log n}\right)^{1 / 2} w^{T}\left(\widehat{\theta}_{n}-\theta\right) & =-\liminf _{n \rightarrow \infty}\left(\frac{n}{2 \log \log n}\right)^{1 / 2} w^{T}\left(\widehat{\theta}_{n}-\theta\right) \\
+& =\sqrt{w^{T} \Sigma(\theta) w} \text { h.c.c .}
+\end{aligned}
+\label{4.10}
+$$
+Cụ thể,
+\begin{align}
+    \limsup _{n \rightarrow \infty}\left(\frac{n}{2 \log \log n}\right)\left(\widehat{\theta}_{n}-\theta\right)\left(\widehat{\theta}_{n}-\theta\right)^{T}=\Sigma(\theta) \quad \text { h.c.c .}
+    \label{4.11}
+\end{align}
+Thêm vào đó, ta cũng có luật mạnh dạng toàn phương
+\begin{align}
+    \lim _{n \rightarrow \infty} \frac{1}{\log n} \sum_{i=1}^{n}\left(\widehat{\theta}_{i}-\theta\right)\left(\widehat{\theta}_{i}-\theta\right)^{T}=\Sigma(\theta) \quad \text { h.c.c }
+    \label{4.12}
+\end{align}
+\begin{proof}
+     Với $\gamma_n = 1/n$, luật logarit lặp đối với vectơ cho bởi ví dụ (d) theo Định lý 1 của \cite{pelletier_on_the_almost}, trong khi luật mạnh dạng toàn phương đối với vectơ cho bởi \tref{4.12} có thể thu được từ Định lý 3 của \cite{pelletier_on_the_almost}.
+\end{proof}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ước lượng các tham số co giãn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ước lượng các tham số co giãn}
+Từ đây trở đi, ta giới thiệu một hàm bổ trợ khác $\psi$ xác định bởi, với mọi $t \in \mathbb{R}^{p}$
+\begin{align}
+    \psi(t)=\mathbb{E}\left[C(X, t)\left(\begin{array}{c}
+    a_{1} f\left(X-\theta_{1}\right) \\
+    \vdots \\
+    a_{p} f\left(X-\theta_{p}\right)
+    \end{array}\right)\right],
+    \label{5.1}
+\end{align}
+trong đó $C(X, t)$ là ma trận được chéo bậc $p$, cho bởi
+\begin{align}
+    C(X, t)=\frac{1}{g(X)} \operatorname{diag}\left(\cos \left(2 \pi\left(X-t_{1}\right)\right), \ldots, \cos \left(2 \pi\left(X-t_{p}\right)\right)\right).
+    \label{5.2}
+\end{align}
+Giống như \tref{4.4}, ta có
+\begin{align}
+    \psi(t)=f_{1}\left(\begin{array}{c}
+a_{1} \cos \left(2 \pi\left(\theta_{1}-t_{1}\right)\right) \\
+\vdots \\
+a_{p} \cos \left(2 \pi\left(\theta_{p}-t_{p}\right)\right)
+\end{array}\right).
+\label{5.3}
+\end{align}
+Khi đó, dựa theo Định lý \tref{dl4.1}, rõ ràng $\psi\left(\widehat{\theta}_{n}\right)$ tiến về $\psi(\theta)=f_{1} a$. Vì thế, đặt dãy $\left(\widehat{a}_{n}\right)$ và $\left(\widetilde{a}_{n}\right)$ xác định bởi, cho $n \geq 1$ và với mọi $1 \leq j \leq p$,
+\begin{align}
+    \widehat{a}_{n, j}=\frac{1}{n f_{1}} \sum_{i=1}^{n} \frac{\cos \left(2 \pi\left(X_{i}-\widehat{\theta}_{i-1, j}\right)\right)}{g\left(X_{i}\right)} Y_{i, j}
+    \label{5.4}
+\end{align}
+và
+\begin{align}
+    \widetilde{a}_{n, j}=\frac{1}{n \widehat{f}_{1, n}} \sum_{i=1}^{n} \frac{\cos \left(2 \pi\left(X_{i}-\widehat{\theta}_{i-1, j}\right)\right)}{g\left(X_{i}\right)} Y_{i, j},
+    \label{5.5}
+\end{align}
+trong đó $\widehat{f}_{1, n}$ xác định bởi (4.14). Đặt $I_{p}$  là ma trận đơn vị cấp $p, e_{1}$ là vector Euclide thứ nhất của $\mathbb{R}^{p}$ và ma trận vuông $M_{p}$ cho bởi
+\begin{align}
+    M_{p}=I_{p}-a e_{1}^{T}.
+    \label{5.6}
+\end{align}
+Khi đó, dáng điệu tiệm cận và luật mạnh dạng toàn phương của $\widehat{a}_{n}$ và của $\widetilde{a}_{n}$ được trình bày trong định lý sau
+
+{\dl Giả sử có các giả thiết từ $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{4}\right)$. Khi đó, ta có
+\begin{align}
+    \lim _{n \rightarrow+\infty} \widehat{a}_{n}=a \quad \text { h.c.c }
+    \label{5.7}
+\end{align}
+và
+\begin{align}
+    \lim _{n \rightarrow+\infty} \widetilde{a}_{n}=a \quad \text { h.c.c ,}
+    \label{5.8}
+\end{align}
+tính tiệm cận chuẩn
+\begin{align}
+    \sqrt{n}\left(\widehat{a}_{n}-a\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}_{p}(0, \Gamma(a))
+    \label{5.9}
+\end{align}
+và
+\begin{align}
+    \sqrt{n}\left(\widetilde{a}_{n}-a\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}_{p}\left(0, M_{p} \Gamma(a) M_{p}^{T}\right),
+    \label{5.10}
+\end{align}
+trong đó $\Gamma(a)$ là ma trận hiệp phương sai cho bởi
+\begin{align}
+    \Gamma(a)=\frac{1}{f_{1}^{2}} \operatorname{Cov}(C(X, \theta) Y).
+    \label{5.11}
+\end{align}
+Thêm vào đó, ta có các luật mạnh dạng toàn phương như sau
+\begin{align}
+    \lim _{n \rightarrow+\infty} \frac{1}{\log (n)} \sum_{i=1}^{n}\left(\widehat{a}_{i}-a\right)\left(\widehat{a}_{i}-a\right)^{T}=\Gamma(a) \quad \text { h.c.c ,}
+    \label{5.12}
+\end{align}
+\begin{align}
+    \lim _{n \rightarrow+\infty} \frac{1}{\log (n)} \sum_{i=1}^{n}\left(\widetilde{a}_{i}-a\right)\left(\widetilde{a}_{i}-a\right)^{T}=M_{p} \Gamma(a) M_{p}^{T} \quad \text { h.c.c .}
+    \label{5.13}
+\end{align}
+}
+\begin{proof}
+    Ta có, với mọi $1 \leq j \leq p$,
+$$
+\widehat{a}_{n, j}=\frac{1}{n f_{1}} \sum_{i=1}^{n} \frac{\cos \left(2 \pi\left(X_{i}-\widehat{\theta}_{i-1, j}\right)\right)}{g\left(X_{i}\right)} Y_{i, j}
+$$
+và
+$$
+\widetilde{a}_{n, j}=\frac{1}{n \widehat{f}_{1, n}} \sum_{i=1}^{n} \frac{\cos \left(2 \pi\left(X_{i}-\widehat{\theta}_{i-1, j}\right)\right)}{g\left(X_{i}\right)} Y_{i, j}.
+$$
+Từ \tref{5.2} suy ra
+$$
+\widehat{a}_{n}=\frac{1}{n f_{1}} \sum_{i=1}^{n} C\left(X_{i}, \widehat{\theta}_{i-1}\right) Y_{i}
+$$
+và
+$$
+\widetilde{a}_{n}=\frac{1}{n \widehat{f}_{1, n}} \sum_{i=1}^{n} C\left(X_{i}, \widehat{\theta}_{i-1}\right) Y_{i},
+$$
+trong đó
+$$
+Y_{i}=\left(\begin{array}{c}
+Y_{i, 1} \\
+\vdots \\
+Y_{i, p}
+\end{array}\right).
+$$
+Ta cũng có các biến đổi sau
+\begin{align}
+    \widehat{a}_{n}-a=\frac{1}{n f_{1}} S_{n}(a)+\frac{1}{n f_{1}} R_{n}(a)
+    \label{8.13}
+\end{align}
+và
+\begin{align}
+    \widetilde{a}_{n}-a=\frac{1}{n \widehat{f}_{1, n}}\left(S_{n}(a)+\left(f_{1}-\widehat{f}_{1, n}\right) a\right)+\frac{1}{n \widehat{f}_{1, n}} R_{n}(a)
+    \label{8.14}
+\end{align}
+với
+$$
+S_{n}(a)=\sum_{i=1}^{n}\left(C\left(X_{i}, \theta\right) Y_{i}-f_{1} a\right),
+$$
+
+và phần còn lại
+$$
+R_{n}(a)=\sum_{i=1}^{n}\left(C\left(X_{i}, \widehat{\theta}_{i-1}\right)-C\left(X_{i}, \theta\right)\right) Y_{i} \text{ .}
+$$
+nghĩa là 
+$$
+R_{n,j}(a) = \sum_{i=1}^n \frac{\cos \left(2 \pi\left(X_i-\hat{\theta}_{i-1,j}\right)\right)-\cos \left(2 \pi\left(X_i-\theta_{i, j}\right)\right)}{g\left(X_i\right)} \cdot Y_j, 1\leq j \leq p
+$$
+Hơn nữa,
+$$
+\begin{aligned}
+\left(f_{1}-\widehat{f}_{1, n}\right) a & =\sum_{i=1}^{n}\left(f_{1}-\frac{\cos \left(2 \pi X_{i}\right)}{g\left(X_{i}\right)} Y_{i, 1}\right) a \\
+& =-e_{1}^{T} S_{n}(a) a.
+\end{aligned}
+$$
+Do đó, từ \tref{8.14} ta suy ra
+\begin{align}
+    \widetilde{a}_{n}-a=\frac{1}{n \widehat{f}_{1, n}} M_{p} S_{n}(a)+\frac{1}{n \widehat{f}_{1, n}} R_{n}(a) \text{ ,}
+    \label{8.15}
+\end{align}
+trong đó ma trận $M_{p}$ xác định bởi \tref{5.6}. Thêm vào đó, với mọi $1 \leq j \leq p$,
+\begin{align}
+    R_{n, j}(a)=a_{j} R_{n, j}^{1}(a)+v_{j} R_{n, j}^{2}(a)+R_{n, j}^{3}(a),
+    \label{8.16}
+\end{align}
+trong đó
+$$
+R_{n, j}^{1}(a)=\sum_{i=1}^{n} \frac{\Delta c_{i, j}}{g\left(X_{i}\right)} f\left(X_{i}-\theta_{j}\right), \quad R_{n, j}^{2}(a)=\sum_{i=1}^{n} \frac{\Delta c_{i, j}}{g\left(X_{i}\right)}, \quad R_{n, j}^{3}(a)=\sum_{i=1}^{n} \frac{\Delta c_{i, j}}{g\left(X_{i}\right)} \varepsilon_{i, j}
+$$
+và
+$$
+\Delta c_{i, j}=\cos \left(2 \pi\left(X_{i}-\widehat{\theta}_{i-1, j}\right)\right)-\cos \left(2 \pi\left(X_{i}-\theta_{j}\right)\right).
+$$
+Thứ nhất, vì
+$$
+\mathbb{E}\left[C\left(X_{i}, \theta\right) Y_{i} \mid \mathcal{F}_{i-1}\right]=f_{1} a, i\in \mathbb{N}
+$$
+nên
+\begin{align*}
+E\left[S_{n+1}(a) \mid F_n\right]&=E\left[C\left(X_{n+1}, \theta\right) Y_{n+1} \mid F_n\right]-f_1 a+S_n(a) \\
+& = S_n(a)
+\end{align*}
+dãy $\left(S_{n}(a)\right)$ là một vectơ martingale với các số gia độc lập. Với mọi $n \geq 1$, biến phân bình phương dự báo được của nó $\langle S(a)\rangle_{n}$ xác định bởi
+$$
+\begin{aligned}
+\langle S(a)\rangle_{n} & =\sum_{i=1}^{n} \mathbb{E}\left[\left(C\left(X_{i}, \theta\right) Y_{i}-f_{1} a\right)\left(C\left(X_{i}, \theta\right) Y_{i}-f_{1} a\right)^{T} \mid \mathcal{F}_{i-1}\right] \\
+& =\sum_{i=1}^{n} \operatorname{Cov}\left(C\left(X_{i}, \theta\right) Y_{i} \mid \mathcal{F}_{i-1}\right).
+\end{aligned}
+$$
+Khi đó, rõ ràng là
+$$
+\lim _{n \rightarrow+\infty} \frac{\langle S(a)\rangle_{n}}{n}=\Gamma(a) \quad \text { h.c.c ,}
+$$
+trong đó $\Gamma(a)$ xác định bởi \tref{5.11}.\\
+Thứ hai, vì
+$$
+\begin{aligned}
+\mathbb{E}\left[\frac{\Delta c_{i, j}}{g\left(X_{i}\right)} \mid \mathcal{F}_{i-1}\right] & =\int_{-1 / 2}^{1 / 2} \cos \left(2 \pi\left(x-\widehat{\theta}_{i-1, j}\right)\right) d x-\int_{-1 / 2}^{1 / 2} \cos \left(2 \pi\left(x-\theta_{j}\right)\right) d x \\
+& =0
+\end{aligned}
+$$
+dãy $\left(R_{n, j}^{2}(a)\right)$ là martingale khả tích cấp 2 có biến phân bình phương dự báo được cho bởi
+$$
+\left\langle R_{j}^{2}(a)\right\rangle_{n}=\sum_{i=1}^{n} \mathbb{E}\left[\frac{\Delta c_{i, j}^{2}}{g^{2}\left(X_{i}\right)} \mid \mathcal{F}_{i-1}\right].
+$$
+Khi đó, vì $cos\left(\cdot\right)$ là hàm Lipschitz, ta có
+$$
+\left|\Delta c_{i, j}\right| \leq\left|\widehat{\theta}_{i-1, j}-\theta_{j}\right|.
+$$
+Do đó, vì $g$ không triệt tiêu $[-1 / 2 ; 1 / 2]$, tồn tại một hằng số  $C>0$ sao cho
+\begin{align}
+    \mathbb{E}\left[\frac{\Delta c_{i, j}^{2}}{g^{2}\left(X_{i}\right)} \mid \mathcal{F}_{i-1}\right] \leq C\left(\widehat{\theta}_{i-1, j}-\theta_{j}\right)^{2}.
+    \label{8.17}
+\end{align}
+Khi đó, từ \tref{4.12} cùng với bất đẳng thức trước đó \tref{8.17} suy ra
+\begin{align}
+    \left\langle R_{j}^{2}(a)\right\rangle_{n}=\mathcal{O}(\log (n)) \quad \text { h.c.c .}
+    \label{8.18}
+\end{align}
+Do đó, từ luật mạnh số lớn cho martingales được cho bởi Định lý 1.3.15 của \cite{duflo} ta suy ra rằng, với mọi $1 \leq j \leq p$,
+\begin{align}
+    R_{n, j}^{2}(a)=o(\log (n)) \quad \text { h.c.c . }
+    \label{8.19}
+\end{align}
+Hơn nữa, $\left(R_{n, j}^{3}(a)\right)$ cũng là martingale khả tích cấp 2 có biến phân bình phương dự báo được cho bởi
+$$
+\left\langle R_{j}^{3}(a)\right\rangle_{n}=\sigma_{j}^{2}\left\langle R_{j}^{2}(a)\right\rangle_{n}.
+$$
+Khi đó, từ \tref{8.18} ta lập tức suy ra
+\begin{align}
+    \left\langle R_{j}^{3}(a)\right\rangle_{n}=\mathcal{O}(\log (n)) \quad \text { h.c.c }
+    \label{8.20}
+\end{align}
+và từ luật mạnh số lớn cho martingales thì, với mọi $1 \leq j \leq p$,
+\begin{align}
+    R_{n, j}^{3}(a)=o(\log (n)) \quad \text { h.c.c . }
+    \label{8.21}
+\end{align}
+Sau đó, với mọi $1 \leq j \leq p$, với sự thay đổi của biến $u=x-\theta_{j}$,
+$$
+\begin{aligned}
+\mathbb{E}\left[\frac{\Delta c_{i, j}}{g\left(X_{i}\right)} f\left(X_{i}-\theta_{j}\right) \mid \mathcal{F}_{i-1}\right] & =\int_{-1 / 2}^{1 / 2}\left(\cos \left(2 \pi\left(x-\widehat{\theta}_{i-1, j}\right)\right)-\cos \left(2 \pi\left(x-\theta_{j}\right)\right)\right) f\left(x-\theta_{j}\right) d x \\
+& =\int_{-1 / 2-\theta_{j}}^{1 / 2-\theta_{j}}\left(\cos \left(2 \pi\left(u+\theta_{j}-\widehat{\theta}_{i-1, j}\right)\right)-\cos (2 \pi u)\right) f(u) d u.
+\end{aligned}
+$$
+Khi đó, dựa trên đẳng thức lượng giác cơ bản
+$$
+\cos \left(2 \pi\left(u+\theta_{j}-\widehat{\theta}_{i-1, j}\right)\right)=\cos (2 \pi u) \cos \left(2 \pi\left(\theta_{j}-\widehat{\theta}_{i-1, j}\right)\right)-\sin (2 \pi u) \sin \left(2 \pi\left(\theta_{j}-\widehat{\theta}_{i-1, j}\right)\right)
+$$
+và tính đối xứng và tính tuần hoàn của hàm $f$ dẫn tới
+$$
+\mathbb{E}\left[\frac{\Delta c_{i, j}}{g\left(X_{i}\right)} f\left(X_{i}-\theta_{j}\right) \mid \mathcal{F}_{i-1}\right]=f_{1}\left(\cos \left(2 \pi\left(\theta_{j}-\widehat{\theta}_{i-1, j}\right)\right)-1\right) \quad \text { h.c.c .}
+$$
+Hơn nữa, với mọi $|x|<1 / 2$, ta có
+$$
+|\cos (2 \pi x)-1| \leq 2 \pi^{2} x^{2}
+$$
+dẫn đến
+\begin{align}
+    \left|\mathbb{E}\left[\frac{\Delta c_{i, j}}{g\left(X_{i}\right)} f\left(X_{i}-\theta_{j}\right) \mid \mathcal{F}_{i-1}\right]\right| \leq 2 \pi^{2}\left(\theta_{j}-\widehat{\theta}_{i-1, j}\right)^{2} \quad \text { h.c.c }
+    \label{8.22}
+\end{align}
+Hơn nữa, ta có phân tích
+$$
+R_{n, j}^{1}(a)=A_{n, j}(a)+B_{n, j}(a),
+$$
+trong đó
+$$
+A_{n, j}(a)=\sum_{i=1}^{n}\left(\frac{\Delta c_{i, j}}{g\left(X_{i}\right)} f\left(X_{i}-\theta_{j}\right)-\mathbb{E}\left[\frac{\Delta c_{i, j}}{g\left(X_{i}\right)} f\left(X_{i}-\theta_{j}\right) \mid \mathcal{F}_{i-1}\right]\right)
+$$
+và
+$$
+B_{n, j}(a)=\sum_{i=1}^{n} \mathbb{E}\left[\frac{\Delta c_{i, j}}{g\left(X_{i}\right)} f\left(X_{i}-\theta_{j}\right) \mid \mathcal{F}_{i-1}\right].
+$$
+Một lần nữa, từ luật mạnh dạng toàn phương \tref{4.12} cùng với \tref{8.22} ta suy ra rằng, với mọi $1 \leq j \leq p$,
+\begin{align}
+    B_{n, j}(a)=\mathcal{O}(\log (n)) \quad \text { h.c.c .}
+    \label{8.23}
+\end{align}
+Thêm vào đó, với mọi $1 \leq j \leq p,\left(A_{n, j}(a)\right)$ là martingale khả tích cấp hai dự báo được $\left\langle A_{j}(a)\right\rangle_{n}$ thỏa mãn
+$$
+\left\langle A_{j}\right\rangle_{n} \leq \sum_{i=1}^{n} \mathbb{E}\left[\frac{\Delta c_{i, j}^{2}}{g\left(X_{i}\right)^{2}} f^{2}\left(X_{i}-\theta_{j}\right) \mid \mathcal{F}_{i-1}\right].
+$$
+Vì hàm hình dạng $f$ bị chặn, từ \tref{4.12} cùng với \tref{8.17} ta suy ra
+$$
+\left\langle A_{j}(a)\right\rangle_{n}=\mathcal{O}(\log (n)) \quad \text { h.c.c . }
+$$
+Do đó, từ luật mạnh số lớn đối với martingale ta kết luận, với mọi $1 \leq j \leq p$,
+\begin{align}
+    A_{n, j}(a)=o(\log (n)) \quad \text { h.c.c .}
+    \label{8.24}
+\end{align}
+Cuối cùng, từ \tref{8.19}, \tref{8.21} cùng với \tref{8.23} và \tref{8.24} ta suy ra rằng, với mọi $1 \leq j \leq p$
+\begin{align}
+    R_{n, j}(a)=\mathcal{O}(\log (n)) \quad \text { h.c.c .}
+    \label{8.25}
+\end{align}
+Do đó, từ \tref{8.13} ta thu được
+\begin{align}
+    \widehat{a}_{n}-a=\frac{1}{n f_{1}} S_{n}(a)+\mathcal{O}\left(\frac{\log (n)}{n}\right) \quad \text { h.c.c }
+    \label{8.26}
+\end{align}
+và từ \tref{8.15} thì
+\begin{align}
+    \widetilde{a}_{n}-a=\frac{1}{n \widehat{f}_{1, n}} M_{p} S_{n}(a)+\mathcal{O}\left(\frac{\log (n)}{n}\right) \quad \text { h.c.c .}
+    \label{8.27}
+\end{align}
+Do đó, ta chứng minh được $\widehat{f}_{1, n}$ hội tụ hầu chắc chắn về $f_{1}$, \tref{5.7} và \tref{5.8} dựa trên luật số lớn cho martingales và chứng minh được \tref{5.9} và \tref{5.10} dựa trên định lý giới hạn trung tâm cho martingale và bổ đề Slutsky, từ đó thu được \tref{5.12} và \tref{5.13} từ Định lý 2.1 của \cite{chaabane} .
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ước lượng hàm hồi quy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ước lượng hàm hồi quy}
+Trong phần này, ta sẽ ước lượng phi tham số hàm hồi quy $f$ thông qua ước lượng đệ quy Nadaraya-Watson. Một mặt, ta bổ sung giả thuyết tiêu chuẩn sau đây.
+
+$\left(\mathcal{H}_{5}\right)$ Hàm hồi quy $f$ là hàm Lipchitz.
+
+\noindent và ta giả định rằng $f_{1}$ đã biết.\\
+Một mặt, ta tuân theo cách tiếp cận của \cite{bercu}. Hơn nữa, để chính xác hơn, ta xem xét một phiên bản ước lượng Nadaraya-Watson có trọng như sau
+\begin{align}
+    \widehat{f}_{n}(x)=\sum_{j=1}^{p} \omega_{j}(x) \widehat{f}_{n, j}(x),
+    \label{6.1}
+\end{align}
+trong đó, với mọi $1 \leq j \leq p$,
+\begin{align}
+    \omega_{j}(x)=\omega_{j}(-x), \quad \omega_{j}(x) \geq 0 \quad \text { và } \quad \sum_{j=1}^{p} \omega_{j}(x)=1,
+    \label{6.2}
+\end{align}
+\begin{align}
+    \widehat{f}_{n, j}(x)=\frac{1}{\widehat{a}_{n, j}} \frac{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)\left(Y_{i, j}-\widehat{v}_{i-1, j}\right)}{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)}
+    \label{6.3}
+\end{align}
+và
+\begin{align}
+W_{n, j}(x)=\frac{1}{h_{n}} K\left(\frac{X_{n}-\widehat{\theta}_{n-1, j}-x}{h_{n}}\right).
+\end{align}
+Băng tần $\left(h_{n}\right)$ là một dãy các số thực dương, giảm về $0$, sao cho $n h_{n}$ tiến ra vô cùng. Để cho đơn giản, ta đề xuất sử dụng $h_{n}=1 / n^{\alpha}$ với $\left.\alpha \in\right] 0,1[$. Hơn nữa, từ đây về sau, ta sẽ giả định hạt nhân $K$ là một hàm đối xứng không âm, bị chặn với giá compact, thỏa
+\begin{align}
+    \int_{\mathbb{R}} K(x) d x=1 \quad \text { và } \quad \int_{\mathbb{R}} K^{2}(x) d x=\nu^{2}.
+    \label{6.5}
+\end{align}
+{\dl \label{dl6.1}Giả sử có các giả thiết từ $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{5}\right)$ và dãy $\left(\varepsilon_{i, j}\right)$ có moment hữu hạn bậc $>2$. Khi đó, với $x \in[-1 / 2 ; 1 / 2]$ tùy ý, ta có
+\begin{align}
+    \lim _{n \rightarrow \infty} \widehat{f}_{n}(x)=f(x) \quad \text { h.c.c .}
+    \label{9.4}
+\end{align}
+} 
+\begin{proof}
+Với mọi $x \in[-1 / 2 ; 1 / 2]$, ký hiệu $\check{f}_{n, j}(x)$ là dãy xác định, với $n \geq 1$ và $1 \leq j \leq p$, bởi
+\begin{align}
+    \check{f}_{n, j}(x)=\widehat{a}_{n, j} \widehat{f}_{n, j}(x) \text {. }
+    \label{9.1}
+\end{align}
+Ta có thể viết lại
+\begin{align}
+    \check{f}_{n, j}(x)=\check{f}_{n, j}^{1}(x)+\check{f}_{n, j}^{2}(x),
+    \label{9.2}
+\end{align}
+trong đó
+$$
+\check{f}_{n, j}^{1}(x)=\frac{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)\left(Y_{i, j}-v_{j}\right)}{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)}
+$$
+và
+$$
+\check{f}_{n, j}^{2}(x)=\frac{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)\left(v_{j}-\widehat{v}_{i-1, j}\right)}{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)}.
+$$
+Ta có các giả thiết $\left(\mathcal{H}_1\right), \left(\mathcal{H}_2\right),\left(\mathcal{H}_3\right), \left(\mathcal{H}_4\right), \left(\mathcal{H}_5\right)$. \\
+Từ $\left(\mathcal{H}_4\right)$ suy ra $|\theta_j| < \frac{1}{4}, 1\leq j \leq p$.\\
+Từ $\left(\mathcal{H}_5\right)$ suy ra $g_j=a_j f$ là ánh xạ Lipchitz với mọi $1\leq j \leq p$. \\
+Khi đó $\left(Y_{i, j}-v_{j}\right)=g_j(X_i-\theta_j)+\varepsilon_{i,j}$ và 
+$$
+\check{f}_{n, j}^{1}(x)=\frac{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)\left(Y_{i, j}-v_{j}\right)}{\sum_{i=1}^{n}\left(W_{i, j}(x)+W_{i, j}(-x)\right)}
+$$
+nên theo Định lý 3.1 của [1] ta có với mọi $x \in[-1 / 2 ; 1 / 2]$, với mọi $1\leq j \leq p$
+$$
+\lim _{n \rightarrow+\infty} \check{f}_{n, j}^{1}(x)= g_{j}(x) = a_{j} f(x) \quad \text { h.c.c .}
+$$
+Mặt khác, sự hội tụ hầu chắc chắn của $\widehat{v}_{i-1, j}$ đến $v_{j}$ khi $i$ tiến ra vô cùng và 
+$$\sum_{i=1}^{\infty}\left(W_{i, j}(x)+W_{i, j}(-x)\right) = +\infty$$
+nên theo bổ đề Toeplitz
+\noindent rằng với mọi $x \in[-1 / 2 ; 1 / 2]$,
+$$
+\lim _{n \rightarrow+\infty} \check{f}_{n, j}^{2}(x)=0 \quad \text { h.c.c . }
+$$
+Do đó, ta có thể kết luận rằng
+\begin{align}
+    \lim _{n \rightarrow \infty} \check{f}_{n, j}(x)=a_{j} f(x) \quad \text { h.c.c . }
+    \label{9.3}
+\end{align}
+Hơn nữa, vì $\widehat{a}_{n, j}$ hội tụ hầu chắc chắn về $a_{j} \neq 0$ khi $n$ tiến đến vô cùng, nên
+$$
+\lim _{n \rightarrow \infty} \widehat{f}_{n, j}(x)=f(x) \quad \text { h.c.c . }
+$$
+Cuối cùng, \tref{6.1} với \ref{9.4} cho phép ta kết luận chứng minh của Định lý \ref{dl6.1}.
+\end{proof}
+
+{\dl \label{dl6.2}Giả sử có các giả thiết từ $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{5}\right)$ và dãy $\left(\varepsilon_{i, j}\right)$ có moment hữu hạn bậc $>2$. Lúc đó, khi băng tần $\left(h_{n}\right)$ thỏa $h_{n}=1 / n^{\alpha}$ với $\alpha>1 / 3$, ta có tính tiệm cận chuẩn từng điểm như sau, với mọi $x \in[-1 / 2 ; 1 / 2]$ tùy ý và $x \neq 0$
+\begin{align}
+    \sqrt{n h_{n}}\left(\widehat{f}_{n}(x)-f(x)\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0, \frac{\nu^{2}}{1+\alpha} \sum_{j=1}^{p} \frac{\sigma_{j}^{2} \omega_{j}^{2}(x)}{a_{j}^{2}\left(g\left(\theta_{j}+x\right)+g\left(\theta_{j}-x\right)\right)}\right).
+    \label{6.6}
+\end{align}
+Thêm vào đó, cho $x=0$,
+\begin{align}
+    \sqrt{n h_{n}}\left(\widehat{f}_{n}(0)-f(0)\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0, \frac{\nu^{2}}{1+\alpha} \sum_{j=1}^{p} \frac{\sigma_{j}^{2} \omega_{j}^{2}(0)}{a_{j}^{2} g\left(\theta_{j}\right)}\right).
+    \label{6.7}
+\end{align}
+}
+\begin{proof}
+Bây giờ ta sẽ tiến hành chứng minh tính tiệm cận chuẩn của $\widehat{f}_{n}$. Ta có, với mọi $x \in[-1 / 2 ; 1 / 2]$,
+\begin{align}
+    \widehat{f}_{n}(x)-f(x) & =\sum_{j=1}^{p} \omega_{j}(x)\left(\widehat{f}_{n, j}(x)-f(x)\right) \\
+& =\sum_{j=1}^{p} \omega_{j}(x) \frac{\mathcal{M}_{n, j}(x)+\mathcal{P}_{n, j}(x)+\mathcal{Q}_{n, j}(x)+\mathcal{R}_{n, j}(x)+\mathcal{S}_{n, j}(x)}{n \mathcal{G}_{n, j}(x)},
+\label{9.5}
+\end{align}
+trong đó
+$$
+\begin{aligned}
+\mathcal{G}_{n, j}(x) & =\widehat{a}_{n, j}\left(\widehat{g}_{n, j}(x)+\widehat{g}_{n, j}(-x)\right), \\
+\mathcal{M}_{n, j}(x) & =M_{n, j}(x)+M_{n, j}(-x), \\
+\mathcal{P}_{n, j}(x) & =P_{n, j}(x)+P_{n, j}(-x), \\
+\mathcal{Q}_{n, j}(x) & =Q_{n, j}(x)+Q_{n, j}(-x), \\
+\mathcal{R}_{n, j}(x) & =R_{n, j}(x)+R_{n, j}(-x), \\
+\mathcal{S}_{n, j}(x) & =S_{n, j}(x)+S_{n, j}(-x),
+\end{aligned}
+$$
+với $\widehat{g}_{n, j}(x), M_{n, j}(x), P_{n, j}(x), Q_{n, j}(x), R_{n, j}(x)$ và $S_{n, j}(x)$ cho bởi
+$$
+\begin{aligned}
+\widehat{g}_{n, j}(x) & =\frac{1}{n} \sum_{i=1}^{n} W_{i, j}(x), \\
+M_{n, j}(x) & =\sum_{i=1}^{n} W_{i, j}(x) \varepsilon_{i, j}, \\
+P_{n, j}(x) & =\widehat{a}_{n, j} \sum_{i=1}^{n} W_{i, j}(x)\left(f\left(X_{i}-\widehat{\theta}_{i-1, j}\right)-f(x)\right), \\
+Q_{n, j}(x) & =\widehat{a}_{n, j} \sum_{i=1}^{n} W_{i, j}(x)\left(f\left(X_{i}-\theta_{j}\right)-f\left(X_{i}-\widehat{\theta}_{i-1, j}\right)\right), \\
+R_{n, j}(x) & =\left(a_{j}-\widehat{a}_{n, j}\right) \sum_{i=1}^{n} W_{i, j}(x) f\left(X_{i}-\theta_{j}\right), \\
+S_{n, j}(x) & =\sum_{i=1}^{n} W_{i, j}(x)\left(v_{j}-\widehat{v}_{i-1, j}\right) .
+\end{aligned}
+$$
+Đầu tiên, (6.28) của \cite{bercu} cùng với sự hội tụ hầu chắc chắn của $\widehat{a}_{n}$ đến $a$ khi $n$ tiến đến vô cùng, dẫn đến
+\begin{align}
+    \lim _{n \rightarrow+\infty} \mathcal{G}_{n, j}(x)=a_{j}\left(g\left(\theta_{j}+x\right)+g\left(\theta_{j}-x\right)\right) \quad \text { h.c.c ,}
+    \label{9.6}
+\end{align}
+nghĩa là 
+$$
+\mathcal{G}_{n, j}(x) = \mathcal{O}(1).
+$$
+Thêm vào đó, từ (6.32) và (6.35) của \cite{bercu} ta thu được rằng, với $\alpha>1 / 3$,
+\begin{align}
+\mathcal{P}_{n, j}^{2}(x)=o\left(n^{1+\alpha}\right) & \text { h.c.c, } \label{9.7}\\
+\mathcal{Q}_{n, j}^{2}(x)=o\left(n^{1+\alpha}\right) & \text { h.c.c, } \label{9.8}
+\end{align}
+suy ra 
+$$
+\begin{array}{ll}
+\mathcal{P}_{n, j}(x)=o\left(\sqrt{n^{1+\alpha}}\right) & \text { h.c.c, } \\
+\mathcal{Q}_{n, j}(x)=o\left(\sqrt{n^{1+\alpha}}\right) & \text { h.c.c . }
+\end{array}
+$$
+Do đó, với mọi $x \in[-1 / 2,1 / 2]$, ta thấy rằng
+\begin{align}
+    \lim _{n \rightarrow \infty} \sqrt{\frac{h_{n}}{n}} \sum_{j=1}^{p} \omega_{j}(x) \frac{\mathcal{P}_{n, j}(x)+\mathcal{Q}_{n, j}(x)}{\mathcal{G}_{n, j}(x)}= \lim _{n \rightarrow \infty} \frac{1}{\sqrt{n^{1+\alpha}}} \sum_{j=1}^{p} \omega_{j}(x) \frac{\mathcal{P}_{n, j}(x)+\mathcal{Q}_{n, j}(x)}{\mathcal{G}_{n, j}(x)}=0 \quad \text { h.c.c . }
+\label{9.9}
+\end{align}
+Thứ hai, vì hàm hình dạng $f$ bị chặn nên
+$$
+R_{n, j}(x)=\mathcal{O}\left(\left|a_{j}-\widehat{a}_{n, j}\right| \sum_{i=1}^{n} W_{i, j}(x)\right) \quad \text { h.c.c .}
+$$
+Vì
+$$
+\sum_{i=1}^{n} W_{i, j}(x)=\mathcal{O}(n) \quad \text { h.c.c }
+$$
+đảm bảo rằng
+\begin{align}
+    R_{n, j}(x)=\mathcal{O}\left(n\left|a_{j}-\widehat{a}_{n, j}\right|\right) \quad \text { h.c.c .}
+    \label{9.10}
+\end{align}
+Thêm vào đó, từ \tref{8.26} ta có thể suy ra , với mọi $1 \leq j \leq p$,
+$$
+\left|a_{j}-\widehat{a}_{n, j}\right|=\mathcal{O}\left(\sqrt{\frac{\log (n)}{n}}\right) \quad \text { h.c.c }
+$$
+điều này thông qua \tref{9.10}, dẫn đến
+\begin{align}
+    R_{n, j}(x)=\mathcal{O}(\sqrt{n \log (n)}) \quad \text { h.c.c }
+    \label{9.11}
+\end{align}
+suy ra
+$$
+\mathcal{R}_{n, j}^{2}(x)=\mathcal{O}(n \log (n)) \quad \text { h.c.c . }
+$$
+Do đó,
+\begin{align}
+    \mathcal{R}_{n, j}^{2}(x)=o\left(n^{1+\alpha}\right) \quad \text { h.c.c .}
+    \label{9.12}
+\end{align}
+Thứ ba, ta có bất đẳng thức sau
+\begin{align}
+    \left|S_{n, j}(x)\right| \leq \Lambda_{n, j}(x)+\Sigma_{n, j}(x),
+    \label{9.13}
+\end{align}
+trong đó
+$$
+\Lambda_{n, j}(x)=\sum_{i=1}^{n} \mathcal{L}_{i, j}\left(W_{i, j}(x)-\mathbb{E}\left[W_{i, j}(x) \mid \mathcal{F}_{i-1}\right]\right)
+$$
+và
+$$
+\Sigma_{n, j}(x)=\sum_{i=1}^{n} \mathcal{L}_{i, j} \mathbb{E}\left[W_{i, j}(x) \mid \mathcal{F}_{i-1}\right]
+$$
+với $\mathcal{L}_{i, j}=\left|v_{j}-\widehat{v}_{i-1, j}\right|$. 
+Theo bất đẳng thức Cauchy-Schwarz có được
+$$\sum_{i=1}^{n} \mathcal{L}_{i, j}\leq \left(\sum_{i=1}^{n} 1\right)^{1/2}\left(\sum_{i=1}^{n} \mathcal{L}_{i, j}^2\right)^{1/2}
+$$
+Từ (6.34) của \cite{bercu} cùng với bất đẳng thức trên và luật mạnh dạng toàn phương cho bởi \tref{3.5} ta suy ra
+\begin{align}
+    \Sigma_{n, j}(x)=\mathcal{O}\left(\sqrt{n}\left(\sum_{i=1}^{n} \mathcal{L}_{i, j}^{2}\right)^{1 / 2}\right)=\mathcal{O}(\sqrt{n \log (n)}) \quad \text { h.c.c .}
+    \label{9.14}
+\end{align}
+Hơn nữa, dãy $\left(\Lambda_{n, j}(x)\right)$ là martingale với biến phân bình phương dự báo được, cho bởi
+$$
+\left\langle\Lambda_{j}(x)\right\rangle_{n}=\mathcal{O}\left(\sum_{i=1}^{n} \mathcal{L}_{i, j}^{2} \mathbb{E}\left[W_{i, j}^{2}(x) \mid \mathcal{F}_{i-1}\right]\right) \quad \text { h.c.c .}
+$$
+Do đó, từ luật mạnh dạng toàn phương của \tref{3.5} ta một lần nữa thu được
+\begin{align}
+    \langle\Lambda(x)\rangle_{n, j}=\mathcal{O}\left(n^{\alpha} \sum_{i=1}^{n} \mathcal{L}_{i, j}^{2}\right)=\mathcal{O}\left(n^{\alpha} \log (n)\right) \quad \text { h.c.c .}
+    \label{9.15}
+\end{align}
+điều này cho phép ta chứng minh, từ luật mạnh số lớn cho martingales thì với tùy ý $\gamma>0$,
+\begin{align}
+    \Lambda_{n, j}^{2}(x)=o\left(n^{\alpha} \log (n)^{2+\gamma}\right) \quad \text { h.c.c .}
+    \label{9.16}
+\end{align}
+Vì thế,
+\begin{align}
+\mathcal{S}_{n, j}^{2}(x) & =o\left(n^{\alpha} \log (n)^{2+\gamma}\right)+\mathcal{O}(n \log (n)) \\
+& =o\left(n^{1+\alpha}\right) \quad \text { h.c.c . }
+\label{9.17}
+\end{align}
+Bây giờ ta xác định dáng điệu tiệm cận của số hạng $\mathcal{M}_{n, j}(x)$. Với mọi $x \in[-1 / 2 ; 1 / 2]$ và với mọi $1 \leq j \leq p$, dãy $\left(\mathcal{M}_{n, j}(x)\right)$ là martingale khả tích cấp hai dự báo được, cho bởi
+$$
+\left\langle\mathcal{M}_{j}(x)\right\rangle_{n}=\sigma_{j}^{2} \sum_{i=1}^{n} \mathbb{E}\left[\left(W_{i, j}(x)+W_{i, j}(-x)\right)^{2} \mid \mathcal{F}_{i-1}\right]
+$$
+từ (6.37) của \cite{bercu} ta suy ra rằng ta có, với $x \neq 0$,
+\begin{align}
+    \lim _{n \rightarrow \infty} \frac{\left\langle\mathcal{M}_{j}(x)\right\rangle_{n}}{n^{1+\alpha}}=\frac{\sigma_{j}^{2} \nu^{2}}{1+\alpha}\left(g\left(\theta_{j}+x\right)+g\left(\theta_{j}-x\right)\right)
+    \label{9.18}
+\end{align}
+và từ (6.38) của \cite{bercu} thì, với $x=0$,
+\begin{align}
+    \lim _{n \rightarrow \infty} \frac{\left\langle\mathcal{M}_{j}(0)\right\rangle_{n}}{n^{1+\alpha}}=4 \frac{\sigma_{j}^{2} \nu^{2}}{1+\alpha} g\left(\theta_{j}\right).
+    \label{9.19}
+\end{align}
+Hơn nữa, theo (6.39) của \cite{bercu}, vì $\left(\varepsilon_{i, j}\right)$ có moment bậc $>2$, điều kiện Lindeberg được thỏa mãn với $\mathcal{M}_{n, j}(x)$. Từ định lý giới hạn trung tâm cho martingales trong các ví dụ của Hệ quả 2.1.10 của \cite{duflo} ta có thể kết luận rằng với mọi $x \in[-1 / 2 ; 1 / 2]$ với $x \neq 0$,
+\begin{align}
+    \frac{\mathcal{M}_{n, j}(x)}{\sqrt{n^{1+\alpha}}} \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0, \frac{\sigma_{j}^{2} \nu^{2}}{1+\alpha}\left(g\left(\theta_{j}+x\right)+g\left(\theta_{j}-x\right)\right)\right)
+    \label{9.20}
+\end{align}
+trong khi, với $x=0$,
+\begin{align}
+    \frac{\mathcal{M}_{n, j}(0)}{\sqrt{n^{1+\alpha}}} \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0,4 \frac{\sigma_{j}^{2} \nu^{2}}{1+\alpha} g\left(\theta_{j}\right)\right).
+    \label{9.21}
+\end{align}
+Cuối cùng, từ \tref{9.20} và \tref{9.21} và tính độc lập của $\varepsilon_{i, 1}, \ldots, \varepsilon_{i, p}$ cùng với sự hội tụ trước đó ở \tref{9.6} và Định lý Slutsky ta thấy rằng, với mọi $x \in[-1 / 2,1 / 2]$ với $x \neq 0$,
+\begin{align}
+    \frac{1}{\sqrt{n^{1+\alpha}}} \sum_{j=1}^{p} \omega_{j}(x) \frac{\mathcal{M}_{n, j}(x)}{\mathcal{G}_{n, j}(x)} \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0, \frac{\nu^{2}}{1+\alpha} \sum_{j=1}^{p} \frac{\sigma_{j}^{2} \omega_{j}^{2}(x)}{a_{j}^{2}\left(g\left(\theta_{j}+x\right)+g\left(\theta_{j}-x\right)\right)}\right),
+    \label{9.22}
+\end{align}
+trong khi đó, với $x=0$,
+\begin{align}
+    \frac{1}{\sqrt{n^{1+\alpha}}} \sum_{j=1}^{p} \omega_{j}(0) \frac{\mathcal{M}_{n, j}(0)}{\mathcal{G}_{n, j}(0)} \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0, \frac{\nu^{2}}{1+\alpha} \sum_{j=1}^{p} \frac{\sigma_{j}^{2} \omega_{j}^{2}(0)}{a_{j}^{2} g\left(\theta_{j}\right)}\right).
+    \label{9.23}
+\end{align}
+Khi đó, sự kết hợp của \tref{9.9},\tref{9.12},\tref{9.17} cùng với 2 sự hội tụ ở \tref{9.22} và \tref{9.23} và Định lý Slutsky cho phép ta kết luận rằng, với mọi $x \in[-1 / 2,1 / 2]$ với $x \neq 0$,
+$$
+\sqrt{n h_{n}}\left(\widehat{f}_{n}(x)-f(x)\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0, \frac{\nu^{2}}{1+\alpha} \sum_{j=1}^{p} \frac{\sigma_{j}^{2} \omega_{j}^{2}(x)}{a_{j}^{2}\left(g\left(\theta_{j}+x\right)+g\left(\theta_{j}-x\right)\right)}\right),
+$$
+trong khi đó, với $x=0$,
+$$
+\sqrt{n h_{n}}\left(\widehat{f}_{n}(0)-f(0)\right) \stackrel{\mathcal{L}}{\longrightarrow} \mathcal{N}\left(0, \frac{\nu^{2}}{1+\alpha} \sum_{j=1}^{p} \frac{\sigma_{j}^{2} \omega_{j}^{2}(0)}{a_{j}^{2} g\left(\theta_{j}\right)}\right).
+$$
+điều này hoàn thành chứng minh Định lý \ref{dl6.2}
+\end{proof}
+{\dl Giả sử có các giả thiết từ $\left(\mathcal{H}_{1}\right)$ đến $\left(\mathcal{H}_{4}\right).$ Khi đó tồn tại duy nhất bộ ba$\left(a,\theta, v\right)$ và hàm dạng $f$ thỏa mãn mô hình \tref{1.1}}
+\begin{proof}
+    Giả sử hai bộ ba vector tham số $(a, \theta, v), \left(a^{*}, \theta^{*}, v^{*}\right)$ khác nhau thỏa mãn $\left(\mathcal{H}_{4}\right)$ và hai hàm dạng $f, f^{*}$ thỏa mãn $\left(\mathcal{H}_{2}\right)$ và $\left(\mathcal{H}_{3}\right)$, sao cho với mọi $1 \leq j \leq p$ và với mọi $x \in \mathbb{R}$
+\begin{align}
+    a_{j} f\left(x-\theta_{j}\right)+v_{j}=a_{j}^{*} f^{*}\left(x-\theta_{j}^{*}\right)+v_{j}^{*}
+    \label{10.1}
+\end{align}
+suy ra
+$$
+\int_{-1 / 2}^{1 / 2} a_j f\left(x-\theta_j\right)+v_j d x=\int_{-1 / 2}^{1 / 2} a_j^* f\left(x-\theta_j^*\right)+v_j^* d x
+$$
+do đó
+$$
+\int_{-1 / 2}^{1 / 2} v_j d x=\int_{-1 / 2}^{1 / 2} v_j^* d x.
+$$
+Điều này dẫn đến $v_{j}=v_{j}^{*}$. Khi đó, \tref{10.1} trở thành
+\begin{align}
+    a_{j} f\left(x-\theta_{j}\right)=a_{j}^{*} f^{*}\left(x-\theta_{j}^{*}\right) .
+    \label{10.2}
+\end{align}
+Với $j=1$, giả thiết $\mathcal{H}_4$ giúp ta kết luận được $a_{1}=a_{1}^{*}=1$ và $\theta_{1}=\theta_{1}^{*}=0$ nên $f(x)=f^{*}(x)$. Khi đó, \tref{10.2} có thể viết lại như sau
+\begin{align}
+    a_{j} f\left(x-\theta_{j}\right)=a_{j}^{*} f\left(x-\theta_{j}^{*}\right) .
+    \label{10.3}
+\end{align}
+Do đó, với
+$$
+I_{2}=\int_{0}^{1} f^{2}(x) d x,
+$$
+ta bình phương hai bế và lấy tích phân trên $\left(0;1\right)$ của \tref{10.3}, ta thu được
+\begin{align}
+    a_{j}^{2} I_{2}=\left(a_{j}^{*}\right)^{2} I_{2}
+    \label{10.4}
+\end{align}
+dẫn đến
+\begin{align}
+    a_{j}^{2}=\left(a_{j}^{*}\right)^{2}.
+    \label{10.5}
+\end{align}
+Nếu $a_{j}=a_{j}^{*}$, thì $f\left(x-\theta_{j}\right)=f\left(x-\theta_{j}^{*}\right)$ và do
+$$
+\max _{1 \leq j \leq p}\left|\theta_{j}\right|<1 / 4
+$$
+nên $\theta_{j}=\theta_{j}^{*}$. Ngược lại, nếu $a_{j}=-a_{j}^{*}$, thì $f\left(x-\theta_{j}\right)+f\left(x-\theta_{j}^{*}\right)=0$, điều này rõ ràng dẫn đến đẳng thức $f(x)=f\left(x+2\left(\theta_{j}-\theta_{j}^{*}\right)\right)$. Vì vậy, ràng buộc
+$$
+\max _{1 \leq j \leq p}\left|\theta_{j}\right|<1 / 4
+$$
+ngụ ý rằng $\theta_{j}=\theta_{j}^{*}$. Khi đó, $f(x)=0$, điều này là không thể. Cuối cùng, ta đã chứng minh được
+$$
+v=v^{*}, \quad \theta=\theta^{*}, \quad a=a^{*} \quad \text { và } \quad f=f^{*} \text {, }
+$$
+dẫn đến sự duy nhất của mô hình \tref{1.1}. 
+\end{proof}
+
+
+

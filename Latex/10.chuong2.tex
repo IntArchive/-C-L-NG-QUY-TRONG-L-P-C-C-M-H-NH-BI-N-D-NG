@@ -1,0 +1,283 @@
+\chapter{Kiến thức chuẩn bị}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Kỳ vọng có điều kiện
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+\section{Kỳ vọng có điều kiện và Martingale}
+\subsection{Kỳ vọng có điều kiện}
+{\dn Cho $\mathbf{X}: \Omega \rightarrow \mathbb{R}^{n}$ là một vector ngẫu nhiên được định nghĩa trên không gian xác suất $(\Omega, \mathcal{A}, \mathbb{P})$. Ánh xạ chiếu $\pi_{i}: \mathbb{R}^{n} \rightarrow \mathbb{R}$ của vector $n$ chiều $X$ lên thành phần thứ $i$ của nó, $X_{i}=\pi_{i}(\mathbf{X})$, là một hàm đo được Borel. Dẫn đến $X_{i}=\pi_{i} \circ \mathbf{X}$ là một biến ngẫu nhiên đối với mỗi $i \in \overline{1,n}$. Hơn nữa, không gian biến cố được sinh bởi vector ngẫu nhiên $\mathbf{X}$ được cho bởi
+$$
+\sigma(\mathbf{X})=\sigma\left(X_{1}, \ldots, X_{n}\right) .
+$$}
+\subsubsection{Kỳ vọng có điều kiện của biến ngẫu nhiên}
+\quad Giả sử $\mathcal{F}$ là $\sigma$-đại số con của $\sigma$-đại  $\mathcal{A}$.
+    Kỳ vọng có điều kiện của biến ngẫu nhiên $X \geq 0$ đối với $\mathcal{F}$ là biến ngẫu nhiên suy rộng không âm
+\[
+\mathbb{E}(X \mid \mathcal{F}): \Omega \rightarrow[0, \infty]
+\]
+sao cho
+
+(i) $\mathbb{E}(X \mid \mathcal{F})$ là $\mathcal{F}$-đo được,
+
+(ii) với mọi $A \in \mathcal{F}$
+\[
+\int_A X \, d\mathbb{P} = \int_A \mathbb{E}(X \mid \mathcal{F}) \, d\mathbb{P} .
+\]
+
+Giả sử $X$ là biến ngẫu nhiên bất kỳ sao cho với xác suất một
+\[
+\min \left\{\mathbb{E}\left(X^{+} \mid \mathcal{F}\right), \mathbb{E}\left(X^{-} \mid \mathcal{F}\right)\right\}<\infty .
+\]
+
+Khi đó ta nói: $X$ có kỳ vọng có điều kiện đối với $\sigma$-trường $\mathcal{F}$, và gọi
+\[
+\mathbb{E}(X \mid \mathcal{F})=\mathbb{E}\left(X^{+} \mid \mathcal{F}\right)-\mathbb{E}\left(X^{-} \mid \mathcal{F}\right)
+\]
+là kỳ vọng có điều kiện của $X$ đối với $\mathcal{F}$.
+
+Nếu $Y$ là biến ngẫu nhiên và $\sigma(Y)$ là $\sigma$-trường $Y^{-1}(\mathcal{B}(\mathbb{R}))$ thì ta viết
+$$
+\mathbb{E}(X \mid Y):=\mathbb{E}(X \mid \sigma(Y)).
+$$
+
+\subsubsection{Kỳ vọng có điều kiện cho trước vector ngẫu nhiên}
+Xét biến ngẫu nhiên $X: \Omega \rightarrow \mathbb{R}$ sao cho $\mathbb{E}|X|<\infty$ và vector ngẫu nhiên 
+$\mathbf{Y}: \Omega \rightarrow \mathbb{R}^{n}, $ $n \in \mathbb{N}$ được định nghĩa trên cùng một không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$. Kỳ vọng có điều kiện của biến ngẫu nhiên $X$ cho trước vector ngẫu nhiên $\mathbf{Y}$ được định nghĩa là $\mathbb{E}[X \mid \mathbf{Y}] \triangleq \mathbb{E}[X \mid \sigma(\mathbf{Y})]$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Các tính chất của kỳ vọng có điều kiện
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Các tính chất của kỳ vọng có điều kiện}
+
+Ta quy ước rằng khi viết kỳ vọng có điều kiện thì ta ngầm giả sử kỳ vọng có điều kiện tồn tại.
+Đồng thời, ta đồng nhất các biến ngẫu nhiên bằng nhau hầu chắc chắn. Các đẳng thức, bất đẳng thức hiểu theo nghĩa: được thực hiện hầu chắc chắn.
+\begin{enumerate}
+    \item Nếu $X$ là $\mathcal{F}$-đo được thì $\mathbb{E}(X \mid \mathcal{F})=X$. Đặc biệt, nếu $C$ là hằng số thì $\mathbb{E}(C \mid \mathcal{F})=C$.
+    \item Nếu $X \leq Y$ thì $\mathbb{E}(X \mid \mathcal{F}) \leq \mathbb{E}(Y \mid \mathcal{F})$. Đặc biệt, ta có bất đẳng thức
+    $$
+    |\mathbb{E}(X \mid \mathcal{F})| \leq \mathbb{E}(|X| \mid \mathcal{F}).
+    $$
+    \item Nếu $a, b \in \mathbb{R}$ thì $\mathbb{E}((a X+b Y) \mid \mathcal{F})=a \mathbb{E}(X \mid \mathcal{F})+b \mathbb{E}(Y \mid \mathcal{F})$. \\
+    \item $\mathbb{E}[\mathbb{E}(X \mid \mathcal{F})]=\mathbb{E} X$. \\
+    \item Nếu $\sigma(X)$ và $\mathcal{F}$ độc lập thì $\mathbb{E}(X \mid \mathcal{F})=\mathbb{E} X$. Đặc biệt, nếu $X, Y$ độc lập thì $\mathbb{E}(X \mid Y)=\mathbb{E} X$.
+    \item Nếu $\mathcal{F}_1 \subset \mathcal{F}_2 \subset $ thì
+    $$
+    \mathbb{E}\left[\mathbb{E}\left(X \mid \mathcal{F}_2\right) \mid \mathcal{F}_1\right]=\mathbb{E}\left[\mathbb{E}\left(X \mid \mathcal{F}_1\right) \mid \mathcal{F}_2\right]=\mathbb{E}\left(X \mid \mathcal{F}_1\right) .
+    $$
+    \item Nếu $Y$ là $\mathcal{F}$-đo được thì
+    $$
+    \mathbb{E}(X Y \mid \mathcal{F})=Y \mathbb{E}(X \mid \mathcal{F}).
+    $$
+    \item Nếu $\mathcal{F}_0=\{\emptyset, \Omega\}$ ($\sigma$-trường tầm thường) thì
+    $$
+    \mathbb{E}\left(X \mid \mathcal{F}_0\right)=\mathbb{E} X .
+    $$
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Martingale
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Martingale và một số tính chất}
+{\dn (Martingale, tham khảo \cite{duflo}) Giả sử rằng $X=\left(X_n\right)$ là dãy các biến ngẫu nhiên khả tích và tương thích với bộ lọc $\mathbb{F} = \left(\mathcal{F}_n\right)$. $X$ được gọi là:
+\begin{itemize}
+    \item Martingale nếu với mọi số tự nhiên $n$
+$$
+\mathbb{E}\left[X_{n+1} \mid \mathcal{F}_n\right]=X_n \text { h.c.c . }
+$$
+    \item Martingale dưới nếu với mọi số tự nhiên $n$
+$$
+\mathbb{E}\left[X_{n+1} \mid \mathcal{F}_n\right] \geq X_n \text { h.c.c . }
+$$
+    \item Martingale trên nếu với mọi số tự nhiên $n$
+$$
+\mathbb{E}\left[X_{n+1} \mid \mathcal{F}_n\right] \leq X_n \text { h.c.c . }
+$$
+\end{itemize}
+}
+{\dn (Tham khảo \cite{duflo}) Biến phân bình phương (hoặc đặc trưng bình phương) dự báo được gắn liền với martingale $\left(X_{n}\right)$ với $\langle X\rangle_{0}=0$ và với mọi $n \geq 1$, được định nghĩa 
+$$
+\langle X\rangle_{n}=\sum_{k=1}^{n} \mathbb{E}\left[\left(\Delta X_{k}\right)^{2} \mid \mathcal{F}_{k-1}\right],
+$$
+trong đó $\Delta X_{k}=X_{k}-X_{k-1}$ .\\
+Ta ký hiệu
+$$
+\langle X\rangle_{\infty}=\lim _{n \rightarrow \infty}\langle X\rangle_{n} . 
+$$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Martingale
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Định lý giới hạn trung tâm cho martingale}
+{\dl (Định lý giới hạn trung tâm cho martingale, tham khảo [3]) Cho $\left(X_n\right)$ là một martingale bình phương khả tích và $\left(a_n\right)$ là dãy các số thực dương tăng dến vô cùng. Giả sử rằng:
+\begin{itemize}
+    \item Tồn tại một giới hạn tất định $l>0$ sao cho
+    $$
+    \frac{\langle X\rangle_n}{a_n} \xrightarrow{\mathcal{P}} l .
+    $$
+    \item Điều kiện Lindeberg
+    Với mọi $\varepsilon>0$,
+    $$
+    \frac{1}{a_n} \sum_{k=1}^n \mathbb{E}\left[\left|\Delta X_k\right|^2 \mathbb{I}_{\left\{\left|\Delta X_k \geq\right| \varepsilon \sqrt{a_n}\right\}} \mid \mathcal{F}_{k-1}\right] \xrightarrow{\mathcal{P}} 0 .
+    $$
+\end{itemize}
+
+Khi đó
+$$
+\frac{1}{\sqrt{a_n}} X_n \xrightarrow{\mathcal{L}} \mathcal{N}(0, l) .
+$$
+
+Hơn nữa, khi $l>0$, ta được
+$$
+\sqrt{a_n}\left(\frac{X_n}{\langle X\rangle_n}\right) \stackrel{\mathcal{L}}{\rightarrow} \mathcal{N}\left(0, l^{-1}\right) .
+$$}
+\subsubsection{Luật mạnh số lớn cho martingale}
+{\dl (Luật mạnh số lớn cho martingale, tham khảo \cite{duflo}) Giả sử $\left(M_n\right)$ là martingale bình phương khả tích với quy trình tăng $\langle M\rangle_n$ và đặt $\langle M\rangle_{\infty}=\lim \langle M\rangle_n$. Khi đó $M_n /\langle M\rangle_n \xrightarrow{\text { h.c.c . }} 0$ trên $\left\{\langle M\rangle_{\infty}=\infty\right\}$. Chính xác hơn, với mọi $\gamma>0$, ta có
+$$
+M_n /\langle M\rangle_n=\mathrm{o}\left(\left(\left(\ln \langle M\rangle_n\right)^{1+\gamma} /\langle M\rangle_n\right)^{1 / 2}\right) \text{       h.c.c .}
+$$
+}
+\subsubsection{Khái niệm vector martingale}
+{\dn (Định nghĩa khái niệm vector martingale bình phương khả tích, tham khảo \cite{duflo}) Trên không gian xác suất $(\Omega, \mathcal{A}, \mathbb{P})$ và $\mathbb{F}=\left(\mathcal{F}_n\right)$ là một bộ lọc. Giả sử $M=\left(M_n\right)$ là một dãy các vector ngẫu nhiên có giá trị trong $\mathbb{R}^d$ và tương thích với bộ lọc $\mathbb{F}$.
+\begin{itemize}
+    \item $M$ là một martingale bình phương khả tích nếu đối với mọi $n$
+$$
+E\left[\left\|M_n\right\|^2\right]<\infty \text { và } E\left[M_{n+1}-M_n \mid \mathcal{F}_n\right]=0
+$$
+\item Biến phân bình phương dự báo được của $M$ là một dãy ngẫu nhiên $\langle M\rangle=\left(\langle M\rangle_n\right)$ các ma trận đối xứng, nửa xác định dương cỡ $d \times d$ được định nghĩa bằng cách đặt $\langle M\rangle_0=0$ và
+$$
+\begin{aligned}
+\langle M\rangle_n-\langle M\rangle_{n-1} & =E\left[\left(M_n-M_{n-1}\right)\left(M_n-M_{n-1}\right)^{\top} \mid \mathcal{F}_{n-1}\right] \\
+& =E\left[M_nM_n^{\top} \mid \mathcal{F}_{n-1}\right]-M_{n-1}M_{n-1}^{\top} .
+\end{aligned}
+$$
+\end{itemize}
+}
+\subsubsection{Định lý giới hạn trung tâm cho vector martingale thực}
+{\dl (Định lý giới hạn trung tâm cho vector martingale thực, hệ quả 2.1.10 trong \cite{duflo}) Cho $M$ là một vector martingale bình phương khả tích thực, đáp ứng bộ lọc $\mathbb{F} = \left(\mathcal{F}_n\right)$, có biến phân bình phương dự báo được ký hiệu bởi $\langle M\rangle$. Giả sử rằng, với một dãy thực xác định, ($a_n$) tăng đến $+\infty$, có thêm hai giả định sau:
+\begin{itemize}
+    \item $a_n^{-1}\langle M\rangle_n \xrightarrow{\mathrm{P}} \Gamma$.
+    \item Điều kiện Lindeberg được thỏa mãn; nói cách khác, đối với mọi $\varepsilon>0$,
+$$
+a_n^{-1} \sum_{k=1}^n E\left[\left\|M_k-M_{k-1}\right\|^2 \mathbf{1}_{\left(\left\|M_k-M_{k-1}\right\| \geq \varepsilon a_n^{1 / 2}\right)} \mid \mathcal{F}_{k-1}\right] \xrightarrow{\mathrm{P}} 0 .$$
+\end{itemize}
+Khi đó
+\begin{itemize}
+    \item $a_n^{-1} M_n \xrightarrow{\text{a.s.}} 0$ và $a_n^{-1 / 2} M_n \xrightarrow{\mathcal{L}} \mathcal{N}(0, \Gamma)$. 
+    \item  Nếu $\Gamma$ là khả nghịch thì: $a_n^{1 / 2}\langle M\rangle_n^{-1} M_n \xrightarrow{\mathcal{L}} \mathcal{N}\left(0, \Gamma^{-1}\right)$.
+\end{itemize}
+}
+\section{Thuật toán Robbins-Monro và ước lượng đệ quy Nadaraya-Watson}
+\subsection{Thuật toán Robbins-Monro}
+{\dl (Thuật toán Robbins-Monro, tham khảo \cite{duflo}) Giả sử $\left(X_n\right)$ và $\left(Y_n\right)$ là hai dãy các vector ngẫu nhiên bình phương khả tích đáp ứng với bộ lọc $\mathbb{F}$ có giá trị trong $\mathbb{R}^d$ và $\left(\gamma_n\right)$ là một dãy các biến ngẫu nhiên dương giảm dần về không của các biến ngẫu nhiên tương thích với bộ lọc $\mathbb{F}$, với $\gamma_0 \leq$ hằng số, sao cho $X_{n+1}=X_n+\gamma_n Y_{n+1}$. Giả sử thêm rằng
+$$
+E\left[Y_{n+1} \mid \mathcal{F}_n\right]=f\left(X_n\right) \text {, và } E\left[\left\|Y_{n+1}-f\left(X_n\right)\right\|^2 \mid \mathcal{F}_n\right]=\sigma^2\left(X_n\right) .
+$$
+Khi đó, hàm $f$ là liên tục từ $\mathbb{R}^d$ vào $\mathbb{R}^d$ và bằng không tại điểm $x^*$ và đối với $x \neq x^*,\left\langle f(x), x-x^*\right\rangle<0$.
+Chúng ta cũng giả định một trong các điều kiện sau:
+\begin{enumerate}
+    \item $d=1$ và $|f(x)| \leq K(1+|x|)$ với một hằng số $K$, và 
+$$
+\sum \gamma_n=\infty \text {, và } \sum \gamma_n^2 \sigma^2\left(X_n\right)<\infty \text{ h.c.c,}
+$$
+    \item $\sigma^2(x)+\|f(x)\|^2=s^2(x) \leq K\left(1+\|x\|^2\right)$ và,
+$$
+\sum \gamma_n=\infty \text { và } \sum \gamma_n^2<\infty \text { h.c.c .}
+$$
+\end{enumerate}
+Khi đó $X_n \xrightarrow{\text { h.c.c }} x^*$.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Hàm hạt nhân
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ước lượng đệ quy Nadaraya-Watson}
+{\dn(Tham khảo \cite{noda}) Cho $\left(X_n\right)$ là dãy các biến ngẫu nhiên độc lập, cùng phân phối và hàm mật độ $f$ chưa biết.Cho $K$ là hàm đối xứng, dương, bị chặn và có giá compact sao cho
+$$
+\int_{\mathbb{R}} K(x) d x=1 \text { và } \int_{\mathbb{R}} K^2(x) d x=v^2
+$$
+thì ta gọi $K$ là hàm hạt nhân.
+\noindent Ước lượng đệ quy Nadaraya-Watson của hàm $f$ được xác định bởi
+$$
+\hat{f}_n(x)=\frac{\sum_{k=1}^n W_k(x) Y_k}{\sum_{k=1}^n W_k(x)},
+$$
+trong đó
+$$
+W_k(x)=\frac{1}{h_k} K\left(\frac{X_k-x}{h_k}\right) .
+$$
+Băng tần $\left(h_n\right)$ là dãy các số thực dương, $h_n$ giảm dần về 0 và $n h_n$ tiến ra vô cùng. Với $0<\alpha<1$, ta thường dùng $h_n=1 / n^\alpha$.
+
+{\dl (Tham khảo \cite{noda}) Với mọi $x \in \mathbb{R}$, nếu $\hat{f}_n(x)$ là ước lượng đệ quy Nadaraya-Watson của hàm $f$ thì
+$$
+\lim _{n \rightarrow \infty} \hat{f}_n(x)=f(x) \text { a.s. }
+$$}
+{\dl (Tham khảo \cite{schuster}) Giả sử rằng $\left(\varepsilon_n\right)$ có mô-men hữu hạn, bậc lớn hơn 2. Với mọi $x \in \mathbb{R}$, nếu $\frac{1}{5}<\alpha<1$ thì
+$$
+\sqrt{n h_n}\left(\hat{f}_n(x)-f(x)\right) \xrightarrow{\mathcal{L}} \mathcal{N}\left(0, \frac{\sigma^2 v^2}{(1+\alpha) g(x)}\right) .
+$$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Bổ đề Kronecker
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+\section{Một số công cụ tính toán được sử dụng nhiều trong khóa luận}
+{\bd (Bổ đề Kronecker, tham khảo \cite{duflo}) Giả sử $\left(a_n\right)$ là một dãy tăng ngặt các số thực dương tăng đến $\infty$ và $\left(x_n\right)$ là một dãy số thực sao cho chuỗi $\sum a_n^{-1} x_n$ hội tụ. Khi đó,
+$$
+a_n^{-1} \sum_{k=1}^n x_k \rightarrow 0 \text { khi } n \rightarrow \infty.
+$$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bd (Bổ đề Toeplitz, tham khảo \cite{duflo}) Cho $\left(a_n\right)$ là một dãy các số thực dương thỏa mãn
+$$
+\sum_{n=1}^{\infty} a_n=+\infty .
+$$
+
+Ngoài ra, cho $\left(x_n\right)$ là một dãy các số thực sao cho
+$$
+\lim _{n \rightarrow \infty} x_n=x .
+$$
+
+Khi đó, ta có
+$$
+\lim _{n \rightarrow \infty}\left(\sum_{k=1}^n a_k\right)^{-1} \sum_{k=1}^n a_k x_k=x .
+$$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Dáng điệu tiệm cận
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%
+{\dn Cho hai hàm số $f(x), g(x)$, ta nói hàm $f(x)$  là một "big-O" của $g(x)$, ký hiệu $f(x)=\mathcal{O}(g(x))$, khi $x$ dần về $a$
+nếu tồn tại một hằng số $M,\delta$ sao cho $|f(x)| \leq M|g(x)|$ với mọi $x$ thỏa $|x-a|<\delta$}.
+{\dn 
+Ta viết
+$$
+f(x)=o(g(x)) \quad \text { khi } x \rightarrow \infty
+$$
+nếu với mọi hằng số dương $\varepsilon$, tồn tại một hằng số $x_0$ sao cho
+$$
+|f(x)| \leq \varepsilon g(x) \quad \text { đối với mọi } x \geq x_0 .
+$$
+Hay một cách tương đương là 
+$$
+\lim _{x \rightarrow \infty} \frac{f(x)}{g(x)}=0.
+$$
+{\dn 
+Ta viết
+$$
+f(x)=\mathcal{O}(g(x)) \quad \text { khi } x \rightarrow \infty
+$$
+và đọc là "$f(x)$ là big-$\mathcal{O}$ của $g(x)$" nếu tồn tại số thực dương $M$ tự nhiên $x_0$ sao cho 
+$$
+|f(x)| \leq M g(x) \quad \text { với mọi } x \geq x_0 .
+$$
+}
+{\md Một số tính chất cơ bản của "Big-$\mathcal{O}$" và "little-o"
+\begin{enumerate}
+    \item $f(x)=\mathcal{O}(f(x))$.
+\item Nếu $f(x)=o(g(x))$ thì $f(x)=\mathcal{O}(g(x))$.
+\item Nếu $f(x)=\mathcal{O}(g(x))$ thì $\mathcal{O}(f(x))+\mathcal{O}(g(x))=\mathcal{O}(g(x))$.
+\item Nếu $f(x)=\mathcal{O}(g(x))$ thì $o(f(x))+o(g(x))=o(g(x))$.
+\item Cho $c \neq 0$ thì $c \mathcal{O}(g(x))=\mathcal{O}(g(x))$ và $c o(g(x))=o(g(x))$.
+\item $\mathcal{O}(f(x)) \mathcal{O}(g(x))=\mathcal{O}(f(x) g(x))$.
+\item $o(f(x)) \mathcal{O}(g(x))=o(f(x) g(x))$.
+\item Nếu $g(x)=o(1)$ thì $\frac{1}{1+o(g(x))}=1+o(g(x))$, và $\frac{1}{1+\mathcal{O}(g(x))}=1+\mathcal{O}(g(x))$.
+\item Nếu $g(x)=\mathcal{O}(f(x))$ và $f(x)=o(h(x))$ thì $ g(x)=o(h(x))$.
+\end{enumerate}
+}
+
+
+
+

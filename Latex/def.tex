@@ -1,0 +1,73 @@
+%%-----Định nghĩa lại tên tiếng việt ----
+\renewcommand\today{Ngày \number\day{} tháng \number\month{} năm \number\year{}}
+\newcommand\stoday{\number\day/\number\month/\number\year{}}
+\providecommand*{\contensname}{}\renewcommand*{\contentsname}{Mục lục}
+\providecommand*{\listfigurename}{}\renewcommand*{\listfigurename}{Danh sách các hình}
+\providecommand*{\listtablename}{}\renewcommand*{\listtablename}{Danh sách các bảng}
+\providecommand*{\indexname}{}\renewcommand*{\indexname}{Chỉ mục}
+\providecommand*{\figurename}{}\renewcommand*{\figurename}{Hình}
+\providecommand*{\tablename}{}\renewcommand*{\tablename}{Bảng}
+\providecommand*{\partname}{}\renewcommand*{\partname}{Phần}
+\providecommand*{\appendixname}{}\renewcommand*{\appendixname}{Phụ lục}
+\providecommand*{\chaptername}{}\renewcommand*{\chaptername}{Chương}
+\providecommand*{\bibname}{}\renewcommand*{\bibname}{Tài liệu tham khảo}
+\providecommand*{\abstractname}{}\renewcommand*{\abstractname}{Tóm tắt}
+\providecommand*{\refname}{}\renewcommand*{\refname}{Tài liệu dẫn}
+\providecommand*{\pagename}{}\renewcommand*{\pagename}{Trang}
+\providecommand*{\proofname}{}\renewcommand*{\proofname}{{\bf Chứng minh}}
+\def\up{\MakeUppercase}
+%%----------Ký hiệu chuẩn cho tập hợp số tự nhiên, số nguyên, số hữu tỷ, số thực và số ph 
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}} 
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+%%----------Định nghĩa lại cho dấu tương đương và dấu suy ra.
+\def\iffs{\Leftrightarrow} \def\suy{\Rightarrow} 
+%---------------------------------------------------------
+\newcommand{\id}[1]{{\em #1}\index{#1}} %Tạo từ chỉ mục và in nghiêng từ cần làm chỉ mục
+%%---------------------------------------------------
+%%------------Định nghĩa lại môi trường Định lý, Định nghĩa, Mệnh đề, ...
+\newtheorem{dl}{Định lý}[section]
+\newtheorem{md}[dl]{Mệnh đề}
+\newtheorem{hq}[dl]{Hệ quả}
+\newtheorem{bd}[dl]{Bổ đề}
+\newtheorem{gt}[dl]{Giả thuyết}
+\newtheorem{tc}[dl]{Tính chất}
+\theoremstyle{definition}\newtheorem{dn}[dl]{Định nghĩa}
+\theoremstyle{definition}\newtheorem{cy}[dl]{Chú ý}
+\theoremstyle{definition}\newtheorem{nx}[dl]{Nhận xét}
+%%----- Tạo môi trường có tên Ví dụ và đánh số cho ví dụ (cùng cấp với section)----- 
+\newcounter{danhsovidu}[section] %tao o dem moi de danh so cho vi du
+\newenvironment{vidu}{\stepcounter{danhsovidu}\par\noindent{\bfseries Ví dụ \thesection.\thedanhsovidu.}}{\par}
+%%---------------------------------------------------
+%%------------khung cho phần chứng minh thêm vào
+% Define the new command \bscm
+\newcommand{\bscm}[1]{% 
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+#1
+\end{tcolorbox}
+}
+%%---------------------------------------------------
+%%------------ text in math mode
+% Define the new command \tim :: text in mathmode
+\newcommand{\tim}[1]{\left(\text{#1}\right)}
+\newcommand{\tref}[1]{$\left(\ref{#1}\right)$}
+
+
+
+%%---------------------------------
+%%
+%%----------Tự tạo header và footer riêng-----------------------%%
+\makeatletter
+\newcommand{\ps@myplain}{%khai báo kiểu định dạng mới myplain
+\renewcommand{\@oddhead}{\textit{Khóa luận tốt nghiệp - Chuyên ngành Xác suất -Thống kê}\hrulefill Trang \thepage} 
+%tạo header trang lẻ
+\renewcommand{\@evenhead}{Trang \thepage \hrulefill \textit{Khóa luận tốt nghiệp cử nhân sư phạm toán học}} 
+%tạo header trang chẵn
+ \renewcommand{\@oddfoot}{\mbox{\emph{Đinh Minh Hải - Cử nhân Sư phạm Toán học K46}}\dotfill Trang \thepage} 
+% tạo footer trang lẻ
+\renewcommand{\@evenfoot}{\@oddfoot}} 
+% tạo footer trang chẵn giống footer trang lẻ
+\makeatother
+%%----------------End of file def.tex
