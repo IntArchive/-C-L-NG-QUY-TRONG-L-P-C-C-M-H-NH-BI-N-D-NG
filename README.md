@@ -1,6 +1,7 @@
 # Ước lượng đệ quy trong lớp các mô hình biến dạng
 ---
 _Nội dung chi tiết của khóa luận được trình trong file_ 
+
 _/Main_Dissertation/Khoa_luan_tot_nghiep_DinhMinhHai.pdf_
 
 Toàn bộ khóa luận cấu trúc thành 4 chương. 
